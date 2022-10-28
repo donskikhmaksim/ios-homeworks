@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D08E2909CB53006843C6 /* AppDelegate.swift */; };
 		1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D0902909CB53006843C6 /* SceneDelegate.swift */; };
-		1659D0932909CB53006843C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D0922909CB53006843C6 /* ViewController.swift */; };
 		1659D0982909CB55006843C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1659D0972909CB55006843C6 /* Assets.xcassets */; };
 		1664415B290B4339008B2256 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415A290B4339008B2256 /* FeedViewController.swift */; };
 		1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415C290B4346008B2256 /* ProfileViewController.swift */; };
 		1664415F290B489F008B2256 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415E290B489F008B2256 /* PostViewController.swift */; };
+		16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16644182290BF4AA008B2256 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1659D08B2909CB53006843C6 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1659D08E2909CB53006843C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1659D0902909CB53006843C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1659D0922909CB53006843C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1659D0972909CB55006843C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1659D09C2909CB55006843C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1664415A290B4339008B2256 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1664415C290B4346008B2256 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1664415E290B489F008B2256 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +60,12 @@
 			children = (
 				1659D08E2909CB53006843C6 /* AppDelegate.swift */,
 				1659D0902909CB53006843C6 /* SceneDelegate.swift */,
-				1659D0922909CB53006843C6 /* ViewController.swift */,
 				1659D0972909CB55006843C6 /* Assets.xcassets */,
 				1659D09C2909CB55006843C6 /* Info.plist */,
 				1664415A290B4339008B2256 /* FeedViewController.swift */,
 				1664415C290B4346008B2256 /* ProfileViewController.swift */,
 				1664415E290B489F008B2256 /* PostViewController.swift */,
+				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -139,8 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */,
 				1664415F290B489F008B2256 /* PostViewController.swift in Sources */,
-				1659D0932909CB53006843C6 /* ViewController.swift in Sources */,
 				1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */,
 				1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */,
 				1664415B290B4339008B2256 /* FeedViewController.swift in Sources */,
