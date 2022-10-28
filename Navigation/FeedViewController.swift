@@ -37,12 +37,6 @@ class FeedViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
-        
-    struct Post {
-        
-        var title: String?
-        
-    }
 
     let firstPost = Post(title: "First post")
     
