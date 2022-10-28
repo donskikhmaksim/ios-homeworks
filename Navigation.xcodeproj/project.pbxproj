@@ -15,6 +15,7 @@
 		1664415F290B489F008B2256 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415E290B489F008B2256 /* PostViewController.swift */; };
 		16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16644182290BF4AA008B2256 /* InfoViewController.swift */; };
 		16F84F66290C193D005A1A96 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F65290C193D005A1A96 /* Post.swift */; };
+		16F84F6E290C87C6005A1A96 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1664415E290B489F008B2256 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		16F84F65290C193D005A1A96 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +62,26 @@
 		1659D08D2909CB53006843C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				16F84F6C290C87A4005A1A96 /* Profile */,
 				1659D08E2909CB53006843C6 /* AppDelegate.swift */,
 				1659D0902909CB53006843C6 /* SceneDelegate.swift */,
 				1659D0972909CB55006843C6 /* Assets.xcassets */,
 				1659D09C2909CB55006843C6 /* Info.plist */,
 				1664415A290B4339008B2256 /* FeedViewController.swift */,
-				1664415C290B4346008B2256 /* ProfileViewController.swift */,
 				1664415E290B489F008B2256 /* PostViewController.swift */,
 				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 				16F84F65290C193D005A1A96 /* Post.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		16F84F6C290C87A4005A1A96 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1664415C290B4346008B2256 /* ProfileViewController.swift */,
+				16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				1664415B290B4339008B2256 /* FeedViewController.swift in Sources */,
 				16F84F66290C193D005A1A96 /* Post.swift in Sources */,
 				1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */,
+				16F84F6E290C87C6005A1A96 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
