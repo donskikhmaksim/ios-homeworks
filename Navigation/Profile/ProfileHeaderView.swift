@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
     }()
     
     private lazy var nickNameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 157, y: 27, width: 150, height: 30))
+        let label = UILabel(frame: CGRect(x: 132, y: 27, width: 150, height: 30))
         label.text = "Crazy Frog"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -70,7 +70,7 @@ class ProfileHeaderView: UIView {
     private func setupView() {
         self.addSubview(avatarImageView)
         self.addSubview(nickNameLabel)
-        self.nickNameLabel.center.x = self.center.x
+//        self.nickNameLabel.center.x = self.center.x
         self.addSubview(mindsLabel)
         self.addSubview(statusButton)
         print(#function)

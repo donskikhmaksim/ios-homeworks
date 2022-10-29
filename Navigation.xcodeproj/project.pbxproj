@@ -15,9 +15,6 @@
 		16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16644182290BF4AA008B2256 /* InfoViewController.swift */; };
 		16F84F66290C193D005A1A96 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F65290C193D005A1A96 /* Post.swift */; };
 		16F84F6E290C87C6005A1A96 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */; };
-		16F84F72290C9ED8005A1A96 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F84F71290C9ED8005A1A96 /* Storyboard.storyboard */; };
-		16F84F74290D22D6005A1A96 /* ANCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F73290D22D6005A1A96 /* ANCustomView.swift */; };
-		16F84F76290D238E005A1A96 /* UpdateCornersImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F75290D238E005A1A96 /* UpdateCornersImageView.swift */; };
 		16F84F78290D2775005A1A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F84F77290D2775005A1A96 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -32,9 +29,6 @@
 		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		16F84F65290C193D005A1A96 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		16F84F71290C9ED8005A1A96 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		16F84F73290D22D6005A1A96 /* ANCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANCustomView.swift; sourceTree = "<group>"; };
-		16F84F75290D238E005A1A96 /* UpdateCornersImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCornersImageView.swift; sourceTree = "<group>"; };
 		16F84F77290D2775005A1A96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,9 +70,6 @@
 				1664415E290B489F008B2256 /* PostViewController.swift */,
 				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 				16F84F65290C193D005A1A96 /* Post.swift */,
-				16F84F71290C9ED8005A1A96 /* Storyboard.storyboard */,
-				16F84F73290D22D6005A1A96 /* ANCustomView.swift */,
-				16F84F75290D238E005A1A96 /* UpdateCornersImageView.swift */,
 				16F84F77290D2775005A1A96 /* Assets.xcassets */,
 			);
 			path = Navigation;
@@ -152,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F84F78290D2775005A1A96 /* Assets.xcassets in Resources */,
-				16F84F72290C9ED8005A1A96 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +156,7 @@
 				16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */,
 				1664415F290B489F008B2256 /* PostViewController.swift in Sources */,
 				1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */,
-				16F84F74290D22D6005A1A96 /* ANCustomView.swift in Sources */,
 				1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */,
-				16F84F76290D238E005A1A96 /* UpdateCornersImageView.swift in Sources */,
 				1664415B290B4339008B2256 /* FeedViewController.swift in Sources */,
 				16F84F66290C193D005A1A96 /* Post.swift in Sources */,
 				1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */,
