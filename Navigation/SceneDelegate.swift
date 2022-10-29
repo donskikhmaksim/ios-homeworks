@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tapBarController = UITabBarController()
         tapBarController.viewControllers = [feed, profile]
         tapBarController.viewControllers?.first?.tabBarItem.title = "Feed"
-        tapBarController.viewControllers?.first?.tabBarItem.image = UIImage(systemName: "newspaper")
+        tapBarController.viewControllers?.first?.tabBarItem.image = UIImage(systemName: "house.fill")
         tapBarController.viewControllers?.last?.tabBarItem.title = "Profile"
         tapBarController.viewControllers?.last?.tabBarItem.image = UIImage(systemName: "person")
         
