@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGray
+        self.view.backgroundColor = .systemBackground
         
         self.navigationItem.title = "Профиль"
         self.view.addSubview(profileHeaderView)
