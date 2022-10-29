@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.profileHeaderView.frame = self.view.bounds
+        self.profileHeaderView.frame = self.view.frame
     }
 
 }

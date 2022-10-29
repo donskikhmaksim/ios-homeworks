@@ -10,7 +10,7 @@ import UIKit
 class ProfileHeaderView: UIView {
 
     private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 20, y: 130, width: 120, height: 120))
+        let imageView = UIImageView(frame: CGRect(x: 16, y: 104, width: 120, height: 120))
         imageView.image = UIImage(named: "avatar")
 //        imageView.backgroundColor = .red
         imageView.layer.cornerRadius = 60
@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
     }()
     
     private lazy var nickNameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 200, y: 130, width: 200, height: 50))
+        let label = UILabel(frame: CGRect(x: 157, y: 115, width: 100, height: 30))
         label.text = "Crazy Frog"
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         
@@ -31,7 +31,7 @@ class ProfileHeaderView: UIView {
     }()
     
     private lazy var mindsLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 200, y: 180, width: 200, height: 50))
+        let label = UILabel(frame: CGRect(x: 174, y: 176, width: 100, height: 30))
         label.text = "There are my crazy minds"
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = .gray
@@ -40,10 +40,14 @@ class ProfileHeaderView: UIView {
     }()
     
     private lazy var statusButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 280, width: 390, height: 50))
+        let button = UIButton(frame: CGRect(x: 16, y: 240, width: 378, height: 50))
         button.backgroundColor = .red
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 4
+        button.layer.shadowOffset = CGSizeMake(4, 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+        button.layer.masksToBounds = false
         button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
         button.setTitle("Everything is complicated", for: .normal)
         
