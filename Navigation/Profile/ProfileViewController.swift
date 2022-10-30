@@ -50,10 +50,11 @@ class ProfileViewController: UIViewController {
         let topAnchor = self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
         let leadingAnchor = self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let trailingAnchor = self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let heightAnchor = self.profileHeaderView.heightAnchor.constraint(equalToConstant: 220)
+        let heightAnchor = self.profileHeaderView.heightAnchor.constraint(greaterThanOrEqualToConstant: 220)
+        let bottonAnchor = self.profileHeaderView.bottomAnchor.constraint(lessThanOrEqualTo: self.unknownButton.topAnchor, constant: -10)
         
         return [
-            topAnchor, leadingAnchor, trailingAnchor, heightAnchor
+            topAnchor, leadingAnchor, trailingAnchor, heightAnchor, bottonAnchor
         ]
     }
     
