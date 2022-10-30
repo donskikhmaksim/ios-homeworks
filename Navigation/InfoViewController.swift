@@ -9,7 +9,7 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    var alertButton: UIButton = {
+    private lazy var alertButton: UIButton = {
         var button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         button.backgroundColor = .systemYellow
         button.layer.cornerRadius = 20
