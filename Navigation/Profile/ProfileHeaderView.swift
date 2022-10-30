@@ -12,7 +12,6 @@ class ProfileHeaderView: UIView {
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(named: "avatar")
-        imageView.layer.cornerRadius = 60
         imageView.layer.masksToBounds = true
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
@@ -76,9 +75,13 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.height / 2
+    }
+    
     private func setupView() {
         self.addSubview(avatarImageView)
-//        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2
         self.addSubview(nickNameLabel)
         self.addSubview(mindsLabel)
         self.addSubview(fullNameLabel)
@@ -97,8 +100,6 @@ class ProfileHeaderView: UIView {
             statusButtonAnchors +
             fullNameLabelAnchors
         )
-        
-        
     }
     
     private func avatareImageViewAnchors() -> [NSLayoutConstraint] {
