@@ -20,13 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         let feed = UINavigationController(rootViewController: FeedViewController())
-        let profile = UINavigationController(rootViewController: ProfileViewController())
+        let profile = UINavigationController(rootViewController: LoginViewController())
         let tapBarController = UITabBarController()
         tapBarController.viewControllers = [feed, profile]
         tapBarController.viewControllers?.first?.tabBarItem.title = "Feed"
         tapBarController.viewControllers?.first?.tabBarItem.image = UIImage(systemName: "house.fill")
         tapBarController.viewControllers?.last?.tabBarItem.title = "Profile"
-        tapBarController.viewControllers?.last?.tabBarItem.image = UIImage(systemName: "person")
+        tapBarController.viewControllers?.last?.tabBarItem.image = UIImage(systemName: "person.fill")
         
         self.window?.rootViewController = tapBarController
         self.window?.makeKeyAndVisible()
