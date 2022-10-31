@@ -109,15 +109,7 @@ class LoginViewController: UIViewController {
         textField.indent(size: 12)
         return textField
     }()
-    
-    private lazy var buttonsStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+        
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "blue_pixel")
@@ -131,6 +123,7 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -166,21 +159,20 @@ class LoginViewController: UIViewController {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(logoImageView)
         self.scrollView.addSubview(textFieldsStackView)
-        self.scrollView.addSubview(buttonsStackView)
+        self.scrollView.addSubview(loginButton)
         self.textFieldsStackView.addArrangedSubview(loginTextField)
         self.textFieldsStackView.addArrangedSubview(passwordTextField)
-        self.buttonsStackView.addArrangedSubview(loginButton)
         
         let scrollViewAnchors = scrollViewAnchors()
         let logoImageViewAnchors = logoImageViewAnchors()
         let textFieldsStackViewAnchors = textFieldsStackViewAnchors()
-        let buttonsStackViewAnchors = buttonsStackViewAnchors()
+        let loginButtonAnchors = loginButtonAnchors()
         
         NSLayoutConstraint.activate(
             scrollViewAnchors +
             logoImageViewAnchors +
             textFieldsStackViewAnchors +
-            buttonsStackViewAnchors
+            loginButtonAnchors
         )
         
     }
@@ -222,10 +214,10 @@ class LoginViewController: UIViewController {
         ]
     }
     
-    private func buttonsStackViewAnchors() -> [NSLayoutConstraint] {
-        let leadingAnchor = self.buttonsStackView.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor)
-        let trailingAnchor = self.buttonsStackView.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor)
-        let topAnchor = self.buttonsStackView.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16)
+    private func loginButtonAnchors() -> [NSLayoutConstraint] {
+        let leadingAnchor = self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor)
+        let trailingAnchor = self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor)
+        let topAnchor = self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16)
         
         let loginButtonHeightAnchor = self.loginButton.heightAnchor.constraint(equalToConstant: 50)
         
@@ -244,7 +236,7 @@ class LoginViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             
-            let loginButtonBottomPointY = self.buttonsStackView.frame.origin.y + self.loginButton.frame.origin.y + self.loginButton.frame.height
+            let loginButtonBottomPointY = self.loginButton.frame.origin.y + self.loginButton.frame.height
             let keyboardOriginY = self.view.frame.height - keyboardHeight
             
             let offset = keyboardOriginY <= loginButtonBottomPointY
@@ -267,14 +259,6 @@ class LoginViewController: UIViewController {
     @objc private func loginButtonDidTap(_ sender: AnyObject) {
         let vc = ProfileViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-//        if let button = sender as? UIButton {
-//            switch button.state {
-//            case .selected, .highlighted, .disabled:
-//                button.alpha = 0.8
-//            default:
-//                button.alpha = 1
-//            }
-//        }
     }
 
 }
