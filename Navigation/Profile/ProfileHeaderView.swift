@@ -87,71 +87,29 @@ class ProfileHeaderView: UIView {
         self.addSubview(fullNameLabel)
         self.addSubview(statusButton)
         
-        let avatareImageViewAnchors = avatareImageViewAnchors()
-        let nickNameLabelAnchors = nickNameLabelAnchors()
-        let mindsLabelAnchors = mindsLabelAnchors()
-        let statusButtonAnchors = statusButtonAnchors()
-        let fullNameLabelAnchors = fullNameLabelAnchors()
-        
-        NSLayoutConstraint.activate(
-            avatareImageViewAnchors +
-            nickNameLabelAnchors +
-            mindsLabelAnchors +
-            statusButtonAnchors +
-            fullNameLabelAnchors
-        )
-    }
-    
-    private func avatareImageViewAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16)
-        let leadingAnchor = self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        let widthAnchor = self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.3)
-        let heightAnchor = self.avatarImageView.heightAnchor.constraint(equalTo: self.avatarImageView.widthAnchor)
-        
-        return [
-            topAnchor, leadingAnchor, widthAnchor, heightAnchor
-        ]
-    }
-    
-    private func nickNameLabelAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.nickNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27)
-        let centerXAnchor = self.nickNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        
-        return [
-            topAnchor, centerXAnchor
-        ]
-    }
-    
-    private func mindsLabelAnchors() -> [NSLayoutConstraint] {
-        let bottomAnchor = self.mindsLabel.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34)
-        let leadingAnchor = self.mindsLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.centerXAnchor)
-        let trailingAnchor = self.mindsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        
-        return [
-            bottomAnchor, leadingAnchor, trailingAnchor
-        ]
-    }
-    
-    private func fullNameLabelAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.fullNameLabel.topAnchor.constraint(equalTo: self.nickNameLabel.topAnchor)
-        let bottomAnchor = self.fullNameLabel.bottomAnchor.constraint(equalTo: self.mindsLabel.bottomAnchor)
-        let centerXAnchor = self.fullNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        
-        return [
-            topAnchor, bottomAnchor, centerXAnchor
-        ]
-    }
-    
-    private func statusButtonAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.statusButton.topAnchor.constraint(greaterThanOrEqualTo: self.avatarImageView.bottomAnchor, constant: 16)
-        let leadingAnchor = self.statusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        let trailingAnchor = self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        let heightAnchor = self.statusButton.heightAnchor.constraint(equalToConstant: 50)
-        let bottomAnchor = self.statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:  -16)
-        
-        return [
-            topAnchor, leadingAnchor, trailingAnchor, heightAnchor, bottomAnchor
-        ]
+        NSLayoutConstraint.activate([
+            self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.3),
+            self.avatarImageView.heightAnchor.constraint(equalTo: self.avatarImageView.widthAnchor),
+            
+            self.nickNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
+            self.nickNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            self.mindsLabel.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
+            self.mindsLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.centerXAnchor),
+            self.mindsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            self.fullNameLabel.topAnchor.constraint(equalTo: self.nickNameLabel.topAnchor),
+            self.fullNameLabel.bottomAnchor.constraint(equalTo: self.mindsLabel.bottomAnchor),
+            self.fullNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            self.statusButton.topAnchor.constraint(greaterThanOrEqualTo: self.avatarImageView.bottomAnchor, constant: 16),
+            self.statusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.statusButton.heightAnchor.constraint(equalToConstant: 50),
+            self.statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:  -16)
+        ])
     }
     
     @objc private func buttonDidTap(_ sender: UIButton) {

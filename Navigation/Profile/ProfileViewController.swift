@@ -35,38 +35,17 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(profileHeaderView)
         self.view.addSubview(unknownButton)
         
-        let profileViewControllerAnchors = profileViewControllerAnchors()
-        let unknownButtonAnchors = unknownButtonAnchors()
-        
-        
-        NSLayoutConstraint.activate(
-            profileViewControllerAnchors +
-            unknownButtonAnchors
-        )
-
+        NSLayoutConstraint.activate([
+            self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.profileHeaderView.heightAnchor.constraint(greaterThanOrEqualToConstant: 220),
+            self.profileHeaderView.bottomAnchor.constraint(lessThanOrEqualTo: self.unknownButton.topAnchor, constant: -10),
+            
+            self.unknownButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.unknownButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.unknownButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            self.unknownButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
-    
-    private func profileViewControllerAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
-        let leadingAnchor = self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingAnchor = self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let heightAnchor = self.profileHeaderView.heightAnchor.constraint(greaterThanOrEqualToConstant: 220)
-        let bottonAnchor = self.profileHeaderView.bottomAnchor.constraint(lessThanOrEqualTo: self.unknownButton.topAnchor, constant: -10)
-        
-        return [
-            topAnchor, leadingAnchor, trailingAnchor, heightAnchor, bottonAnchor
-        ]
-    }
-    
-    private func unknownButtonAnchors() -> [NSLayoutConstraint] {
-        let leadingAnchor = self.unknownButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingAnchor = self.unknownButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let buttonAnchor = self.unknownButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-        let heightAnchor = self.unknownButton.heightAnchor.constraint(equalToConstant: 50)
-        
-        return [
-            leadingAnchor, trailingAnchor, buttonAnchor, heightAnchor
-        ]
-    }
-    
 }
