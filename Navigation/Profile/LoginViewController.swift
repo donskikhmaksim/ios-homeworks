@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
         textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.text = "Email or phone"
+        textField.placeholder = "Email or phone"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -100,7 +100,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.isSecureTextEntry = true
-        textField.text = "Password"
+        textField.placeholder = "Password"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
