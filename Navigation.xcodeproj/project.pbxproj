@@ -14,6 +14,8 @@
 		1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415C290B4346008B2256 /* ProfileViewController.swift */; };
 		1664415F290B489F008B2256 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415E290B489F008B2256 /* PostViewController.swift */; };
 		16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16644182290BF4AA008B2256 /* InfoViewController.swift */; };
+		16BB034529107AA1005C0D4A /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */; };
+		16BB034729116DFE005C0D4A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB034629116DFE005C0D4A /* PostTableViewCell.swift */; };
 		16F84F66290C193D005A1A96 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F65290C193D005A1A96 /* Post.swift */; };
 		16F84F6E290C87C6005A1A96 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */; };
 		16F84F78290D2775005A1A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F84F77290D2775005A1A96 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		1664415C290B4346008B2256 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1664415E290B489F008B2256 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		16BB034629116DFE005C0D4A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		16F84F65290C193D005A1A96 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		16F84F77290D2775005A1A96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 				1659D09C2909CB55006843C6 /* Info.plist */,
 				1664415A290B4339008B2256 /* FeedViewController.swift */,
 				1664415E290B489F008B2256 /* PostViewController.swift */,
-				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 				16F84F65290C193D005A1A96 /* Post.swift */,
 				16F84F77290D2775005A1A96 /* Assets.xcassets */,
 			);
@@ -82,7 +85,10 @@
 			children = (
 				1664415C290B4346008B2256 /* ProfileViewController.swift */,
 				16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */,
+				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
 				16350E97291007840005F2B9 /* LoginViewController.swift */,
+				16644182290BF4AA008B2256 /* InfoViewController.swift */,
+				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -158,8 +164,10 @@
 			files = (
 				16350E98291007840005F2B9 /* LoginViewController.swift in Sources */,
 				16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */,
+				16BB034729116DFE005C0D4A /* PostTableViewCell.swift in Sources */,
 				1664415F290B489F008B2256 /* PostViewController.swift in Sources */,
 				1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */,
+				16BB034529107AA1005C0D4A /* ProfileTableHeaderView.swift in Sources */,
 				1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */,
 				1664415B290B4339008B2256 /* FeedViewController.swift in Sources */,
 				16F84F66290C193D005A1A96 /* Post.swift in Sources */,

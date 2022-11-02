@@ -153,6 +153,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     private func setupView() {
         self.view.backgroundColor = .white
         
@@ -162,68 +167,33 @@ class LoginViewController: UIViewController {
         self.scrollView.addSubview(loginButton)
         self.textFieldsStackView.addArrangedSubview(loginTextField)
         self.textFieldsStackView.addArrangedSubview(passwordTextField)
-        
-        let scrollViewAnchors = scrollViewAnchors()
-        let logoImageViewAnchors = logoImageViewAnchors()
-        let textFieldsStackViewAnchors = textFieldsStackViewAnchors()
-        let loginButtonAnchors = loginButtonAnchors()
-        
-        NSLayoutConstraint.activate(
-            scrollViewAnchors +
-            logoImageViewAnchors +
-            textFieldsStackViewAnchors +
-            loginButtonAnchors
-        )
-        
-    }
+
     
-    private func scrollViewAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
-        let leadingAnchor = self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingAnchor = self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let bottomAnchor = self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        NSLayoutConstraint.activate([
+        self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+        self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+        self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+        self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         
-        return [
-            topAnchor, leadingAnchor, trailingAnchor, bottomAnchor
-        ]
-    }
-    
-    private func logoImageViewAnchors() -> [NSLayoutConstraint] {
-        let topAnchor = self.logoImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 120)
-        let centerXAnchor = self.logoImageView.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
-        let widthAnchor = self.logoImageView.widthAnchor.constraint(equalToConstant: 100)
-        let heightAnchor = self.logoImageView.heightAnchor.constraint(equalToConstant: 100)
+        self.logoImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 120),
+        self.logoImageView.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+        self.logoImageView.widthAnchor.constraint(equalToConstant: 100),
+        self.logoImageView.heightAnchor.constraint(equalToConstant: 100),
         
-        return [
-            topAnchor, centerXAnchor, widthAnchor, heightAnchor
-        ]
-    }
-    
-    private func textFieldsStackViewAnchors() -> [NSLayoutConstraint] {
+        self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 120),
+        self.textFieldsStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 16),
+        self.textFieldsStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -16),
+        self.textFieldsStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 32),
         
-        let topAnchor = self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 120)
-        let leadingAnchor = self.textFieldsStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 16)
-        let trailingAnchor = self.textFieldsStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -16)
-        let widthAnchor = self.textFieldsStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 32)
+        self.loginTextField.heightAnchor.constraint(equalToConstant: 50),
+        self.passwordTextField.heightAnchor.constraint(equalToConstant: 50),
         
-        let loginTextFieldHeightAnchor = self.loginTextField.heightAnchor.constraint(equalToConstant: 50)
-        let sugnUpTextFieldHeightAnchor = self.passwordTextField.heightAnchor.constraint(equalToConstant: 50)
+        self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor),
+        self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor),
+        self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16),
         
-        return [
-            leadingAnchor, trailingAnchor, topAnchor, widthAnchor, loginTextFieldHeightAnchor, sugnUpTextFieldHeightAnchor
-        ]
-    }
-    
-    private func loginButtonAnchors() -> [NSLayoutConstraint] {
-        let leadingAnchor = self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor)
-        let trailingAnchor = self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor)
-        let topAnchor = self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16)
-        
-        let loginButtonHeightAnchor = self.loginButton.heightAnchor.constraint(equalToConstant: 50)
-        
-        return [
-            leadingAnchor, trailingAnchor, topAnchor, loginButtonHeightAnchor
-        ]
+        self.loginButton.heightAnchor.constraint(equalToConstant: 50),
+        ])
     }
     
     private func setupGesture() {
