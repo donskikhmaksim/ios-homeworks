@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
     
@@ -48,8 +49,14 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemGray5
+        
 
+        #if DEBUG
+        self.view.backgroundColor = .systemGray5
+        #else
+        self.view.backgroundColor = .systemPink
+        #endif
+                
         self.view.addSubview(someTableView)
         
         NSLayoutConstraint.activate([
