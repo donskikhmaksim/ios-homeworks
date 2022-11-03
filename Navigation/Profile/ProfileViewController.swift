@@ -123,13 +123,6 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 210
-        }
-        return 5
-    }
-    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }

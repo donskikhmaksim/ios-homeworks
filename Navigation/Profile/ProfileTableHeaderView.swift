@@ -32,6 +32,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         self.profileHeaderView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
         self.profileHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
         self.profileHeaderView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        self.profileHeaderView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         self.profileHeaderView.heightAnchor.constraint(lessThanOrEqualToConstant: 250)
         ])
     }
