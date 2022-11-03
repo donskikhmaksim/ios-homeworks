@@ -73,7 +73,8 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
         
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosCell", for: indexPath) as? PhotosTableViewCell else {
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosCell", for: indexPath) as? PhotosTableViewCell else {
             let cell = defaultCell
                 cell.selectionStyle = .none
                 return cell
@@ -84,7 +85,8 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         }
 
         if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? PostTableViewCell else {
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? PostTableViewCell else {
                 let cell = defaultCell
                 cell.selectionStyle = .none
                 return cell
@@ -102,6 +104,13 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         return defaultCell
         
     }
+
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return 140
+//        }
+//        return 0
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -117,7 +126,8 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as? ProfileTableHeaderView else {return nil}
+            guard
+                let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as? ProfileTableHeaderView else {return nil}
             return headerView
         }
         return nil

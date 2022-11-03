@@ -23,6 +23,7 @@ class PhotosTableViewCell: UITableViewCell {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 8
 //        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return layout
     }()
@@ -66,10 +67,10 @@ class PhotosTableViewCell: UITableViewCell {
             self.headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
             self.headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
             
-            self.photosPreviewCollectionView.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor),
+            self.photosPreviewCollectionView.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 12),
             self.photosPreviewCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.photosPreviewCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.photosPreviewCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.photosPreviewCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
             
             self.photosPreviewCollectionView.widthAnchor.constraint(equalToConstant: self.frame.width - 24),
             
@@ -78,7 +79,7 @@ class PhotosTableViewCell: UITableViewCell {
             self.arrowImage.widthAnchor.constraint(equalToConstant: 30),
             self.arrowImage.heightAnchor.constraint(equalToConstant: 30),
             
-            self.heightAnchor.constraint(equalToConstant: 140)
+            self.heightAnchor.constraint(greaterThanOrEqualToConstant: 160)
         ])
     }
 }
@@ -107,8 +108,13 @@ extension PhotosTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionV
         let insets = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
         let interitemSpacing = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 0
         
-        let width = collectionView.bounds.width - (3 * interitemSpacing) - insets.left - insets.right
-        let itemWidtg = floor(width / 4)
+        let width = collectionView.bounds.width - 3 * interitemSpacing - insets.left - insets.right
+        let itemWidtg: CGFloat = width / 4
+        print("🍏 - \(UIScreen.main.bounds.width)")
+        print("🍏 - \(insets)")
+        print("🍏 - \(interitemSpacing)")
+        print("🍏 - \(width)")
+        print("🍏 - \(itemWidtg)")
         
         return CGSize(width: itemWidtg, height: itemWidtg)
     }

@@ -97,6 +97,4 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
         return CGSize(width: itemWidtg, height: itemWidtg)
     }
-    
-
 }
