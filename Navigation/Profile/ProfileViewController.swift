@@ -19,14 +19,11 @@ class ProfileViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "My Custom Cell")
-        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "My Custom Header")
-        // зачем нужно, если и без него высота определяется констрейтами?
-        // tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default Cell")
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "MyCustomCell")
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosCell")
+        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "MyCustomHeader")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.backgroundColor = .systemGray5
-        // почему без указания высоты, она сама не устанавливается из констрейнтов?
-        tableView.sectionHeaderHeight = 210
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -37,8 +34,15 @@ class ProfileViewController: UIViewController {
         self.setupNavigation()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupNavigation()
+        
+    }
+    
     private func setupNavigation() {
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         // не срабатывает
         // self.navigationController?.navigationBar.isHidden = true
     }
@@ -56,34 +60,85 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
 
 extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "My Custom Cell", for: indexPath) as? PostTableViewCell else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Default Cell", for: indexPath)
+        
+        let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+        
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosCell", for: indexPath) as? PhotosTableViewCell else {
+            let cell = defaultCell
+                cell.selectionStyle = .none
+                return cell
+            }
+            
+            cell.selectionStyle = .none
             return cell
         }
+
+        if indexPath.section == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? PostTableViewCell else {
+                let cell = defaultCell
+                cell.selectionStyle = .none
+                return cell
+                
+            }
+            
+            let viewModel = posts[indexPath.row]
+            cell.setup(with: viewModel)
+            cell.selectionStyle = .none
+            return cell
+            
+        }
         
-        let viewModel = posts[indexPath.row]
-        cell.setup(with: viewModel)
-        return cell
+        defaultCell.selectionStyle = .none
+        return defaultCell
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        if section == 1 {
+           return posts.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "My Custom Header") as? ProfileTableHeaderView else {return nil}
+            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as? ProfileTableHeaderView else {return nil}
             return headerView
         }
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 210
+        }
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.someTableView.deselectRow(at: indexPath, animated: true)
+        
+        if let _ = self.someTableView.cellForRow(at: indexPath) as? PhotosTableViewCell {
+            self.navigationController?.pushViewController(PhotosViewController(), animated: true)
+        }
     }
 }
