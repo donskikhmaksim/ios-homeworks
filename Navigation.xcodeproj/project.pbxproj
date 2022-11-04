@@ -220,6 +220,7 @@
 				758D53C51D90B76EAC97331A /* Pods-StorageService.debug.xcconfig */,
 				425D5CA84FADC63BB298A511 /* Pods-StorageService.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
