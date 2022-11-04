@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UIView {
 
@@ -77,27 +78,31 @@ class ProfileHeaderView: UIView {
         self.addSubview(mindsLabel)
         self.addSubview(statusButton)
         
-        NSLayoutConstraint.activate([
-            self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.3),
-            self.avatarImageView.heightAnchor.constraint(equalTo: self.avatarImageView.widthAnchor, multiplier: 1.0),
-            
-            self.nickNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            self.nickNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            self.mindsLabel.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
-            self.mindsLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.centerXAnchor),
-            self.mindsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
-            // Понять почему на SE 26 норм, а 25 - нет
-//            self.statusButton.topAnchor.constraint(lessThanOrEqualTo: self.avatarImageView.bottomAnchor, constant: 25),
-            self.statusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.statusButton.heightAnchor.constraint(equalToConstant: 50),
-            self.statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:  -16),
-        ])
+        avatarImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.lessThanOrEqualToSuperview().multipliedBy(0.3)
+            $0.width.equalTo(avatarImageView.snp.height).multipliedBy(1.0)
+        }
+        
+        nickNameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(27)
+            $0.centerX.equalToSuperview()
+        }
+        
+        mindsLabel.snp.makeConstraints {
+            $0.bottom.equalTo(statusButton.snp.top).inset(34)
+            $0.leading.equalTo(avatarImageView.snp.centerX)
+            $0.trailing.equalToSuperview()
+        }
+        
+        statusButton.snp.makeConstraints {
+            $0.top.equalTo(avatarImageView.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(16)
+            $0.height.equalTo(50)
+            $0.bottom.equalToSuperview().inset(16)
+        }
     }
     
     @objc private func buttonDidTap(_ sender: UIButton) {
