@@ -7,9 +7,9 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
-  
     private lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -57,18 +57,21 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with viewModel: Post) {
+    func setup(with viewModel: Post,_ filter: ColorFilter) {
+        
         self.authorLabel.text = viewModel.author
-        self.postImageView.image = UIImage(named: viewModel.image)
         self.descriptionLabel.text = viewModel.text
         self.likesCountLabel.text = "Likes: \(viewModel.likes)"
         self.viewsCountLabel.text = "Views: \(viewModel.views)"
+        
+        ImageProcessor().processImage(sourceImage: UIImage(named: viewModel.image)  ?? UIImage(systemName: "trash")!, filter: filter) { postImageView.image = $0 }
     }
     
     private func setupView() {
@@ -100,7 +103,6 @@ class PostTableViewCell: UITableViewCell {
             self.viewsCountLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.viewsCountLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
         ])
-        
     }
     
 }

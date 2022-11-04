@@ -101,7 +101,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             let viewModel = posts[indexPath.row]
-            cell.setup(with: viewModel)
+            cell.setup(with: viewModel, .colorInvert)
             cell.selectionStyle = .none
             return cell
             
