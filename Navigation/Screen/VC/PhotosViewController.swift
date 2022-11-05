@@ -39,8 +39,6 @@ class PhotosViewController: UIViewController {
     }
     
     private func navigationSetup() {
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "Photo Gallery"
         self.navigationController?.navigationBar.backgroundColor = .systemGray5
         self.navigationController?.navigationBar.alpha = 1
@@ -50,12 +48,10 @@ class PhotosViewController: UIViewController {
     
     private func setupView() {
         self.view.backgroundColor = .systemGray5
-        
         self.view.addSubview(collectionView)
         
-        
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+        self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
         self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
         self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
@@ -65,7 +61,6 @@ class PhotosViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
-//        self.navigationItem.hidesBackButton = true
     }
 }
 
@@ -74,7 +69,6 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
     }
-
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard

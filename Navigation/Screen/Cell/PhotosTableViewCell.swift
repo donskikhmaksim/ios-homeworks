@@ -24,7 +24,6 @@ class PhotosTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return layout
     }()
     
@@ -32,7 +31,6 @@ class PhotosTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Default")
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "Custom")
-//        collectionView.backgroundColor = .systemGray5
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -110,11 +108,6 @@ extension PhotosTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionV
         
         let width = collectionView.bounds.width - 3 * interitemSpacing - insets.left - insets.right
         let itemWidtg: CGFloat = width / 4
-        print("🍏 - \(UIScreen.main.bounds.width)")
-        print("🍏 - \(insets)")
-        print("🍏 - \(interitemSpacing)")
-        print("🍏 - \(width)")
-        print("🍏 - \(itemWidtg)")
         
         return CGSize(width: itemWidtg, height: itemWidtg)
     }

@@ -41,10 +41,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupNavigation() {
-//        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        // не срабатывает
-        // self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupView() {
@@ -104,13 +101,6 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         return defaultCell
         
     }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return 140
-//        }
-//        return 0
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
