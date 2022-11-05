@@ -39,7 +39,7 @@
 		16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		16BB034629116DFE005C0D4A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
-		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/Profile/Photos/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
+		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/Screen/VC/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
 		16BB03822912FA8C005C0D4A /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -59,6 +59,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1614E38E2916D7CB006F95BC /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				1664415A290B4339008B2256 /* FeedViewController.swift */,
+				16350E97291007840005F2B9 /* LoginViewController.swift */,
+				1664415C290B4346008B2256 /* ProfileViewController.swift */,
+				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		1614E38F2916D7E9006F95BC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
+				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
+				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
+				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1659D0822909CB53006843C6 = {
 			isa = PBXGroup;
 			children = (
@@ -78,24 +100,13 @@
 		1659D08D2909CB53006843C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				16BB038D29137B55005C0D4A /* TabBar */,
-				16BB038C29137B0E005C0D4A /* Data */,
-				16BB038B29137ACF005C0D4A /* Service */,
 				16BB038A29137AA6005C0D4A /* Archive */,
-				16F84F6C290C87A4005A1A96 /* Profile */,
+				16BB038B29137ACF005C0D4A /* AppDelegate */,
+				16BB038D29137B55005C0D4A /* Model */,
+				16BB038C29137B0E005C0D4A /* Resources */,
+				16F84F6C290C87A4005A1A96 /* Screen */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		16BB0389291379F1005C0D4A /* Photos */ = {
-			isa = PBXGroup;
-			children = (
-				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
-				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
-				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
-				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
-			);
-			path = Photos;
 			sourceTree = "<group>";
 		};
 		16BB038A29137AA6005C0D4A /* Archive */ = {
@@ -107,45 +118,42 @@
 			path = Archive;
 			sourceTree = "<group>";
 		};
-		16BB038B29137ACF005C0D4A /* Service */ = {
+		16BB038B29137ACF005C0D4A /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				1659D09C2909CB55006843C6 /* Info.plist */,
 				1659D08E2909CB53006843C6 /* AppDelegate.swift */,
 				1659D0902909CB53006843C6 /* SceneDelegate.swift */,
 			);
-			path = Service;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		16BB038C29137B0E005C0D4A /* Data */ = {
+		16BB038C29137B0E005C0D4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1659D09C2909CB55006843C6 /* Info.plist */,
 				16F84F77290D2775005A1A96 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		16BB038D29137B55005C0D4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				16BB03822912FA8C005C0D4A /* Images.swift */,
 				16F84F65290C193D005A1A96 /* Post.swift */,
 			);
-			path = Data;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		16BB038D29137B55005C0D4A /* TabBar */ = {
+		16F84F6C290C87A4005A1A96 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				1664415A290B4339008B2256 /* FeedViewController.swift */,
-				16350E97291007840005F2B9 /* LoginViewController.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		16F84F6C290C87A4005A1A96 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				16BB0389291379F1005C0D4A /* Photos */,
-				1664415C290B4346008B2256 /* ProfileViewController.swift */,
 				16F84F6D290C87C6005A1A96 /* ProfileHeaderView.swift */,
 				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
-				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
+				1614E38E2916D7CB006F95BC /* VC */,
+				1614E38F2916D7E9006F95BC /* Cell */,
 			);
-			path = Profile;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +370,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 82KQ5UJRH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Navigation/Service/Info.plist;
+				INFOPLIST_FILE = Navigation/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -391,7 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 82KQ5UJRH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Navigation/Service/Info.plist;
+				INFOPLIST_FILE = Navigation/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
