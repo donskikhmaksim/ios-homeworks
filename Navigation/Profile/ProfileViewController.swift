@@ -21,12 +21,11 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "My Custom Cell")
         tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "My Custom Header")
-        // зачем нужно, если и без него высота определяется констрейтами?
-        // tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default Cell")
         tableView.backgroundColor = .systemGray5
-        // почему без указания высоты, она сама не устанавливается из констрейнтов?
         tableView.sectionHeaderHeight = 210
+//        tableView.estimatedSectionHeaderHeight = 210
+//        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -39,8 +38,6 @@ class ProfileViewController: UIViewController {
     
     private func setupNavigation() {
         self.navigationController?.isNavigationBarHidden = true
-        // не срабатывает
-        // self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupView() {

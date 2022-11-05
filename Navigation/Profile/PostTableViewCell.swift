@@ -71,11 +71,13 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        self.addSubview(self.authorLabel)
-        self.addSubview(self.postImageView)
-        self.addSubview(self.descriptionLabel)
-        self.addSubview(self.likesCountLabel)
-        self.addSubview(self.viewsCountLabel)
+        self.contentView.addSubview(self.authorLabel)
+        self.contentView.addSubview(self.postImageView)
+        self.contentView.addSubview(self.descriptionLabel)
+        self.contentView.addSubview(self.likesCountLabel)
+        self.contentView.addSubview(self.viewsCountLabel)
+        
+        descriptionLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         
         NSLayoutConstraint.activate([
             self.authorLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
@@ -84,7 +86,6 @@ class PostTableViewCell: UITableViewCell {
             self.postImageView.topAnchor.constraint(equalTo: self.authorLabel.bottomAnchor, constant: 12),
             self.postImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.postImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.postImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
             self.postImageView.heightAnchor.constraint(equalTo: self.postImageView.widthAnchor, multiplier: 1.0),
             
             self.descriptionLabel.topAnchor.constraint(equalTo: self.postImageView.bottomAnchor, constant: 16),
