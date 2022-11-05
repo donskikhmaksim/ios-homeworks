@@ -71,11 +71,17 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        self.contentView.addSubview(self.authorLabel)
-        self.contentView.addSubview(self.postImageView)
-        self.contentView.addSubview(self.descriptionLabel)
-        self.contentView.addSubview(self.likesCountLabel)
-        self.contentView.addSubview(self.viewsCountLabel)
+//        self.contentView.addSubview(self.authorLabel)
+//        self.contentView.addSubview(self.postImageView)
+//        self.contentView.addSubview(self.descriptionLabel)
+//        self.contentView.addSubview(self.likesCountLabel)
+//        self.contentView.addSubview(self.viewsCountLabel)
+        
+        self.addSubview(self.authorLabel)
+        self.addSubview(self.postImageView)
+        self.addSubview(self.descriptionLabel)
+        self.addSubview(self.likesCountLabel)
+        self.addSubview(self.viewsCountLabel)
         
         postImageView.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         
