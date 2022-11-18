@@ -7,13 +7,15 @@
 
 import UIKit
 
+protocol ProfileViewControllerDelegate: AnyObject {
+ 
+    func avatarTapVC()
+    
+}
+
 class ProfileViewController: UIViewController {
     
-    private lazy var profileTableHeaderView: UITableViewHeaderFooterView = {
-        let view = UITableViewHeaderFooterView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    weak var delegate: ProfileViewControllerDelegate?
     
     private lazy var someTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -37,14 +39,10 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigation()
-        
     }
     
     private func setupNavigation() {
-//        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        // не срабатывает
-        // self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupView() {
@@ -81,6 +79,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            self.delegate = cell
             return cell
         }
 
@@ -104,13 +103,6 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         return defaultCell
         
     }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return 140
-//        }
-//        return 0
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -128,7 +120,9 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             guard
                 let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as? ProfileTableHeaderView else {return nil}
+            headerView.delegate = self
             return headerView
+            
         }
         return nil
     }
@@ -143,5 +137,13 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         if let _ = self.someTableView.cellForRow(at: indexPath) as? PhotosTableViewCell {
             self.navigationController?.pushViewController(PhotosViewController(), animated: true)
         }
+    }
+}
+
+extension ProfileViewController: ProfileTableHeaderViewDelegate {
+    
+    func avatarTap() {
+        delegate?.avatarTapVC()
+//        someTableView.isScrollEnabled = false
     }
 }

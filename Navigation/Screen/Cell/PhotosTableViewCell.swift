@@ -24,7 +24,6 @@ class PhotosTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return layout
     }()
     
@@ -72,7 +71,7 @@ class PhotosTableViewCell: UITableViewCell {
             self.photosPreviewCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.photosPreviewCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
             
-            self.photosPreviewCollectionView.widthAnchor.constraint(equalToConstant: self.frame.width - 24),
+//            self.photosPreviewCollectionView.widthAnchor.constraint(equalToConstant: self.frame.width - 24),
             
             self.arrowImage.centerYAnchor.constraint(equalTo: self.headerLabel.centerYAnchor),
             self.arrowImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
@@ -112,6 +111,14 @@ extension PhotosTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionV
         let itemWidtg: CGFloat = width / 4
         
         return CGSize(width: itemWidtg, height: itemWidtg)
+    }
+    
+}
+
+extension PhotosTableViewCell : ProfileViewControllerDelegate {
+    
+    func avatarTapVC() {
+        self.isUserInteractionEnabled.toggle()
     }
     
 }
