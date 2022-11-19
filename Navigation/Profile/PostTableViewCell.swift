@@ -71,40 +71,34 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-//        self.contentView.addSubview(self.authorLabel)
-//        self.contentView.addSubview(self.postImageView)
-//        self.contentView.addSubview(self.descriptionLabel)
-//        self.contentView.addSubview(self.likesCountLabel)
-//        self.contentView.addSubview(self.viewsCountLabel)
-        
-        self.addSubview(self.authorLabel)
-        self.addSubview(self.postImageView)
-        self.addSubview(self.descriptionLabel)
-        self.addSubview(self.likesCountLabel)
-        self.addSubview(self.viewsCountLabel)
+        self.contentView.addSubview(self.authorLabel)
+        self.contentView.addSubview(self.postImageView)
+        self.contentView.addSubview(self.descriptionLabel)
+        self.contentView.addSubview(self.likesCountLabel)
+        self.contentView.addSubview(self.viewsCountLabel)
         
         descriptionLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         
         NSLayoutConstraint.activate([
-            self.authorLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            self.authorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.authorLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+            self.authorLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
             
             self.postImageView.topAnchor.constraint(equalTo: self.authorLabel.bottomAnchor, constant: 12),
-            self.postImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.postImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.postImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.postImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             self.postImageView.heightAnchor.constraint(equalTo: self.postImageView.widthAnchor, multiplier: 1.0),
             
             self.descriptionLabel.topAnchor.constraint(equalTo: self.postImageView.bottomAnchor, constant: 16),
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
             
             self.likesCountLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
-            self.likesCountLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.likesCountLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            self.likesCountLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.likesCountLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16),
             
             self.viewsCountLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
-            self.viewsCountLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.viewsCountLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            self.viewsCountLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            self.viewsCountLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16),
         ])
         
     }
