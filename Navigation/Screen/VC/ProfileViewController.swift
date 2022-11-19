@@ -144,6 +144,6 @@ extension ProfileViewController: ProfileTableHeaderViewDelegate {
     
     func avatarTap() {
         delegate?.avatarTapVC()
-//        someTableView.isScrollEnabled = false
+//        someTableView.isScrollEnabled.toggle()
     }
 }
