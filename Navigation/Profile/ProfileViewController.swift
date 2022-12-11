@@ -10,11 +10,7 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
-    private lazy var profileTableHeaderView: UITableViewHeaderFooterView = {
-        let view = UITableViewHeaderFooterView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    var currentUser: User
     
     private lazy var someTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -38,18 +34,22 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigation()
-        
+    }
+    
+    init (user: User) {
+        self.currentUser = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupNavigation() {
-//        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        // не срабатывает
-        // self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupView() {
-        
 
         #if DEBUG
         self.view.backgroundColor = .systemGray5
@@ -109,15 +109,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         
         defaultCell.selectionStyle = .none
         return defaultCell
-        
     }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return 140
-//        }
-//        return 0
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -135,6 +127,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             guard
                 let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as? ProfileTableHeaderView else {return nil}
+            headerView.setup(login: currentUser.login ?? "", status: currentUser.status ?? "", avatar: currentUser.avatar!)
             return headerView
         }
         return nil

@@ -57,6 +57,9 @@ let customBlue = UIColor(hex: "#4885CC")
 
 class LoginViewController: UIViewController {
     
+    let currentUserService = CurrentUserService()
+    let testUserService = TestUserService()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +86,7 @@ class LoginViewController: UIViewController {
         textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.text = "Email or phone"
+        textField.placeholder = "Email or phone"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -100,7 +103,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.isSecureTextEntry = true
-        textField.text = "Password"
+        textField.placeholder = "Password"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -125,6 +128,15 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Incorrect login"
+        label.textColor = .red
+        label.alpha = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override func viewDidLoad() {
@@ -167,6 +179,7 @@ class LoginViewController: UIViewController {
         self.scrollView.addSubview(loginButton)
         self.textFieldsStackView.addArrangedSubview(loginTextField)
         self.textFieldsStackView.addArrangedSubview(passwordTextField)
+        self.scrollView.addSubview(errorLabel)
 
     
         NSLayoutConstraint.activate([
@@ -191,8 +204,10 @@ class LoginViewController: UIViewController {
         self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor),
         self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor),
         self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16),
-        
         self.loginButton.heightAnchor.constraint(equalToConstant: 50),
+        
+        self.errorLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 8),
+        self.errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -227,8 +242,24 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonDidTap(_ sender: AnyObject) {
-        let vc = ProfileViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        #if DEBUG
+        if let user = testUserService.checkLogin(login: loginTextField.text ?? "") {
+            let vc = ProfileViewController(user: user)
+            self.navigationController?.pushViewController(vc, animated: true)
+            errorLabel.alpha = 0
+        } else {
+            sleep(1)
+            errorLabel.alpha = 1
+        }
+        #else
+        if let user = currentUserService.checkLogin(login: loginTextField.text ?? "") {
+            let vc = ProfileViewController(user: user)
+            self.navigationController?.pushViewController(vc, animated: true)
+            errorLabel.alpha = 0
+        } else {
+            sleep(1)
+            errorLabel.alpha = 1
+        }
+        #endif
     }
-
 }
