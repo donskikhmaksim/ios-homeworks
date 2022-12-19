@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIImage {
-
     func alpha(_ value:CGFloat) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
@@ -18,44 +17,23 @@ extension UIImage {
     }
 }
 
-extension UIColor {
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
-        
-        if hex.hasPrefix("#") {
-            let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
-            
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-                    
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-        
-        return nil
-    }
-}
-
 extension UITextField {
     func indent(size:CGFloat) {
         self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
         self.leftViewMode = .always
     }
 }
+
+protocol LoginViewControllerDelegate {
     
-let customBlue = UIColor(hex: "#4885CC")
+    func check(login: String, pass: String) -> Bool
+    
+}
 
 class LoginViewController: UIViewController {
+    
+    
+    var loginDelegate: LoginViewControllerDelegate?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -83,7 +61,7 @@ class LoginViewController: UIViewController {
         textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.text = "Email or phone"
+        textField.placeholder = "Email or phone"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -100,7 +78,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.isSecureTextEntry = true
-        textField.text = "Password"
+        textField.placeholder = "Password"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -109,7 +87,7 @@ class LoginViewController: UIViewController {
         textField.indent(size: 12)
         return textField
     }()
-        
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "blue_pixel")
@@ -145,7 +123,7 @@ class LoginViewController: UIViewController {
                                                selector: #selector(self.didHideKeyboard(_:)),
                                                name: UIResponder.keyboardDidHideNotification,
                                                object: nil)
-        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -167,32 +145,32 @@ class LoginViewController: UIViewController {
         self.scrollView.addSubview(loginButton)
         self.textFieldsStackView.addArrangedSubview(loginTextField)
         self.textFieldsStackView.addArrangedSubview(passwordTextField)
-
-    
+        
+        
         NSLayoutConstraint.activate([
-        self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-        self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-        self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-        self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-        
-        self.logoImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 120),
-        self.logoImageView.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
-        self.logoImageView.widthAnchor.constraint(equalToConstant: 100),
-        self.logoImageView.heightAnchor.constraint(equalToConstant: 100),
-        
-        self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 120),
-        self.textFieldsStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 16),
-        self.textFieldsStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -16),
-        self.textFieldsStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 32),
-        
-        self.loginTextField.heightAnchor.constraint(equalToConstant: 50),
-        self.passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-        
-        self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor),
-        self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor),
-        self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16),
-        
-        self.loginButton.heightAnchor.constraint(equalToConstant: 50),
+            self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            self.logoImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 120),
+            self.logoImageView.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            self.logoImageView.widthAnchor.constraint(equalToConstant: 100),
+            self.logoImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 120),
+            self.textFieldsStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 16),
+            self.textFieldsStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -16),
+            self.textFieldsStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 32),
+            
+            self.loginTextField.heightAnchor.constraint(equalToConstant: 50),
+            self.passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+            
+            self.loginButton.leadingAnchor.constraint(equalTo: self.textFieldsStackView.leadingAnchor),
+            self.loginButton.trailingAnchor.constraint(equalTo: self.textFieldsStackView.trailingAnchor),
+            self.loginButton.topAnchor.constraint(equalTo: self.textFieldsStackView.bottomAnchor, constant: 16),
+            self.loginButton.heightAnchor.constraint(equalToConstant: 50),
+            
         ])
     }
     
@@ -216,7 +194,7 @@ class LoginViewController: UIViewController {
             self.scrollView.contentOffset = CGPoint(x: 0, y: offset)
         }
     }
-        
+    
     @objc private func didHideKeyboard(_ notification: Notification) {
         self.hideKeyboard()
     }
@@ -227,8 +205,23 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonDidTap(_ sender: AnyObject) {
-        let vc = ProfileViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 
+        #if DEBUG
+        let service = testUserService
+        #else
+        let service = currentUserService
+        #endif
+        
+        let alertController = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .alert)
+        let wrongPasswordAction = UIAlertAction(title: "Try again?", style: .destructive)
+        alertController.addAction(wrongPasswordAction)
+        
+        if (loginDelegate?.check(login: loginTextField.text!, pass: passwordTextField.text!)) ?? false, let user = service.checkLogin(login: loginTextField.text ?? "")  {
+                let vc = ProfileViewController(user: user)
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+            sleep(1)
+            present(alertController, animated: true, completion: nil)
+        }
+    }
 }
