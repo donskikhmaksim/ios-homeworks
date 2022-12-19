@@ -28,6 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tapBarController.viewControllers?.last?.tabBarItem.title = "Profile"
         tapBarController.viewControllers?.last?.tabBarItem.image = UIImage(systemName: "person.fill")
         
+        let loginInspector = LoginInspector()
+        for x in profile.viewControllers {
+            if let y = x as? LoginViewController {
+                y.loginDelegate = loginInspector
+            }
+        }
+        
         self.window?.rootViewController = tapBarController
         self.window?.makeKeyAndVisible()
     }

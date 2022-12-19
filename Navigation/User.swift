@@ -54,3 +54,6 @@ class TestUserService: UserServiceProtocol {
         }
     }
 }
+
+let currentUserService = CurrentUserService()
+let testUserService = TestUserService()

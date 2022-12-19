@@ -50,13 +50,8 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupView() {
-
-        #if DEBUG
-        self.view.backgroundColor = .systemGray5
-        #else
-        self.view.backgroundColor = .systemPink
-        #endif
-                
+        
+        self.view.backgroundColor = .systemGray5        
         self.view.addSubview(someTableView)
         
         NSLayoutConstraint.activate([
