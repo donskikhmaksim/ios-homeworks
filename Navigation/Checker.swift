@@ -20,7 +20,7 @@ class Checker {
 #else
     private let login = currentUserService.user.login
 #endif
-    private let pass = "123"
+    private let pass = "2"
     
     func check(login: String, pass: String) -> Bool {
         if login == self.login && pass == self.pass {
