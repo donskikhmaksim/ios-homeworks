@@ -44,7 +44,7 @@ class CurrentUserService: UserServiceProtocol {
 
 class TestUserService: UserServiceProtocol {
     
-    var user = User(login: "test", fullName: "Test Test", avatar: UIImage(named: "iceFrog"), status: "Test")
+    var user = User(login: "1", fullName: "Test Test", avatar: UIImage(named: "iceFrog"), status: "Test")
     
     func checkLogin(login: String) -> User? {
         if login == user.login {
