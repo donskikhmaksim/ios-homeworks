@@ -34,18 +34,14 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    private lazy var statusButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 12
+    private lazy var statusButton: CustomButton = {
+        let button = CustomButton(title: "Tap to change status", titleColor: .white, backgroundColor: .systemBlue)
         button.layer.shadowOffset = CGSizeMake(4, 4)
         button.layer.shadowRadius = 12
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
         button.layer.masksToBounds = false
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
-        button.setTitle("Tap to change status", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.closure = { self.buttonDidTap(self.statusButton) }
         return button
     }()
     

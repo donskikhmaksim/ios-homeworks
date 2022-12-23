@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16350E98291007840005F2B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16350E97291007840005F2B9 /* LoginViewController.swift */; };
+		163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CBC5B2952EDE00088BDCE /* CustomButton.swift */; };
 		1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D08E2909CB53006843C6 /* AppDelegate.swift */; };
 		1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D0902909CB53006843C6 /* SceneDelegate.swift */; };
 		1664415B290B4339008B2256 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415A290B4339008B2256 /* FeedViewController.swift */; };
@@ -31,6 +32,9 @@
 		16F1328829143D530001D766 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16F1327F29143D530001D766 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16F1328C29143D590001D766 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F84F65290C193D005A1A96 /* Post.swift */; };
 		16F84F78290D2775005A1A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F84F77290D2775005A1A96 /* Assets.xcassets */; };
+		16FD3DC629559FF9007BE542 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD3DC529559FF9007BE542 /* FeedModel.swift */; };
+		16FD3DC82955B2F3007BE542 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD3DC72955B2F3007BE542 /* UIImage+.swift */; };
+		16FD3DCA2955B387007BE542 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD3DC92955B387007BE542 /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		16350E97291007840005F2B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		163CBC5B2952EDE00088BDCE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1659D08B2909CB53006843C6 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1659D08E2909CB53006843C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1659D0902909CB53006843C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +87,9 @@
 		16F1328229143D530001D766 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
 		16F84F65290C193D005A1A96 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		16F84F77290D2775005A1A96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16FD3DC529559FF9007BE542 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		16FD3DC72955B2F3007BE542 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		16FD3DC92955B387007BE542 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,10 @@
 				16DEFE482940BC6A00791A52 /* User.swift */,
 				16DEFE4A2946966D00791A52 /* Checker.swift */,
 				16DEFE4C29469D6100791A52 /* LoginInspector.swift */,
+				163CBC5B2952EDE00088BDCE /* CustomButton.swift */,
+				16FD3DC529559FF9007BE542 /* FeedModel.swift */,
+				16FD3DC72955B2F3007BE542 /* UIImage+.swift */,
+				16FD3DC92955B387007BE542 /* UITextField+.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -324,12 +336,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BB037F2912E8F4005C0D4A /* PhotosTableViewCell.swift in Sources */,
+				16FD3DC629559FF9007BE542 /* FeedModel.swift in Sources */,
 				16BB03812912EF2C005C0D4A /* PhotosViewController.swift in Sources */,
+				163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */,
 				16350E98291007840005F2B9 /* LoginViewController.swift in Sources */,
 				16BBA53B2913B33A00E6C570 /* PhotosCollectionViewCell.swift in Sources */,
 				16DEFE492940BC6A00791A52 /* User.swift in Sources */,
 				16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */,
 				16DEFE4D29469D6100791A52 /* LoginInspector.swift in Sources */,
+				16FD3DCA2955B387007BE542 /* UITextField+.swift in Sources */,
 				16BB034729116DFE005C0D4A /* PostTableViewCell.swift in Sources */,
 				1664415F290B489F008B2256 /* PostViewController.swift in Sources */,
 				1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */,
@@ -338,6 +353,7 @@
 				16BB038729130B56005C0D4A /* PreviewCollectionViewCell.swift in Sources */,
 				1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */,
 				16DEFE4B2946966D00791A52 /* Checker.swift in Sources */,
+				16FD3DC82955B2F3007BE542 /* UIImage+.swift in Sources */,
 				1664415B290B4339008B2256 /* FeedViewController.swift in Sources */,
 				1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,31 +7,12 @@
 
 import UIKit
 
-extension UIImage {
-    func alpha(_ value:CGFloat) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
-}
-
-extension UITextField {
-    func indent(size:CGFloat) {
-        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.leftViewMode = .always
-    }
-}
-
 protocol LoginViewControllerDelegate {
     
     func check(login: String, pass: String) -> Bool
-    
 }
 
 class LoginViewController: UIViewController {
-    
     
     var loginDelegate: LoginViewControllerDelegate?
     
@@ -62,6 +43,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.placeholder = "Email or phone"
+        textField.text = "1"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -79,6 +61,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.isSecureTextEntry = true
         textField.placeholder = "Password"
+        textField.text = "2"
         textField.backgroundColor = .systemGray6
         textField.textColor = .black
         textField.tintColor = .systemPink
@@ -88,20 +71,15 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
+    private lazy var loginButton: CustomButton = {
+        let button = CustomButton(title: "Login", titleColor: .white)
         let image = UIImage(named: "blue_pixel")
         let alphaImage = image?.alpha(0.8)
         button.setBackgroundImage(image, for: .normal)
         button.setBackgroundImage(alphaImage, for: .selected)
         button.setBackgroundImage(alphaImage, for: .highlighted)
         button.setBackgroundImage(alphaImage, for: .disabled)
-        button.setTitle("Log In", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.closure = { self.loginButtonDidTap() }
         return button
     }()
     
@@ -204,7 +182,7 @@ class LoginViewController: UIViewController {
         self.scrollView.setContentOffset(.zero, animated: true)
     }
     
-    @objc private func loginButtonDidTap(_ sender: AnyObject) {
+    @objc private func loginButtonDidTap() {
 
         #if DEBUG
         let service = testUserService
