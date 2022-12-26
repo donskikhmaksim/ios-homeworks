@@ -15,12 +15,3 @@ class FeedModel {
         word == secretWord
     }
 }
-        if word == secretWord {
-            return true
-        } else {
-            return false
-        }
-    }
-}
-
-let feedModel = FeedModel()
