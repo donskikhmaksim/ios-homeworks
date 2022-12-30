@@ -27,7 +27,7 @@ class FeedViewController: UIViewController {
     private lazy var checkGuessButton: CustomButton = {
         let button = CustomButton(title: "Не нажимай!", width: 250, height: 50, backgroundColor: .systemYellow)
         button.closure = {
-            self.didTapCheckButton()
+//            self.didTapCheckButton()
             self.hideKeyboard()
         }
         return button

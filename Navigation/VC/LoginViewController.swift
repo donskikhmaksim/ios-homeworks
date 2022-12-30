@@ -136,7 +136,7 @@ class LoginViewController: UIViewController {
             self.logoImageView.widthAnchor.constraint(equalToConstant: 100),
             self.logoImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 120),
+            self.textFieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 320),
             self.textFieldsStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 16),
             self.textFieldsStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -16),
             self.textFieldsStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 32),

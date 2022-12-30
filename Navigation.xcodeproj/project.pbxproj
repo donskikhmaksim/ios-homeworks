@@ -75,7 +75,7 @@
 		16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		16BB034629116DFE005C0D4A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
-		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/Profile/Photos/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
+		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/VC/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
 		16BB03822912FA8C005C0D4A /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -133,68 +133,79 @@
 		1659D08D2909CB53006843C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				16BB038D29137B55005C0D4A /* TabBar */,
+				16A1B3DF295F4E6400CBBD83 /* View */,
+				16A1B3DE295F4E1C00CBBD83 /* VC */,
+				16A1B3DD295F4DEA00CBBD83 /* Model */,
 				16BB038C29137B0E005C0D4A /* Data */,
-				16BB038B29137ACF005C0D4A /* Service */,
-				16BB038A29137AA6005C0D4A /* Archive */,
-				16F84F6C290C87A4005A1A96 /* Profile */,
-				16DEFE482940BC6A00791A52 /* User.swift */,
-				16DEFE4A2946966D00791A52 /* Checker.swift */,
-				16DEFE4C29469D6100791A52 /* LoginInspector.swift */,
-				163CBC5B2952EDE00088BDCE /* CustomButton.swift */,
-				16FD3DC529559FF9007BE542 /* FeedModel.swift */,
-				16FD3DC72955B2F3007BE542 /* UIImage+.swift */,
-				16FD3DC92955B387007BE542 /* UITextField+.swift */,
+				16BB038B29137ACF005C0D4A /* AppDelegate */,
+				16A1B3DC295F4DC500CBBD83 /* Extensions + */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		16BB0389291379F1005C0D4A /* Photos */ = {
+		16A1B3DC295F4DC500CBBD83 /* Extensions + */ = {
 			isa = PBXGroup;
 			children = (
-				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
-				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
-				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
-				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
+				16FD3DC72955B2F3007BE542 /* UIImage+.swift */,
+				16FD3DC92955B387007BE542 /* UITextField+.swift */,
 			);
-			path = Photos;
+			path = "Extensions +";
 			sourceTree = "<group>";
 		};
-		16BB038A29137AA6005C0D4A /* Archive */ = {
+		16A1B3DD295F4DEA00CBBD83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				163CBC5B2952EDE00088BDCE /* CustomButton.swift */,
+				16BB03822912FA8C005C0D4A /* Images.swift */,
+				16FD3DC529559FF9007BE542 /* FeedModel.swift */,
+				16DEFE482940BC6A00791A52 /* User.swift */,
+				16DEFE4A2946966D00791A52 /* Checker.swift */,
+				16DEFE4C29469D6100791A52 /* LoginInspector.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16A1B3DE295F4E1C00CBBD83 /* VC */ = {
 			isa = PBXGroup;
 			children = (
 				1664415E290B489F008B2256 /* PostViewController.swift */,
 				16644182290BF4AA008B2256 /* InfoViewController.swift */,
+				1664415A290B4339008B2256 /* FeedViewController.swift */,
+				16350E97291007840005F2B9 /* LoginViewController.swift */,
+				1664415C290B4346008B2256 /* ProfileViewController.swift */,
+				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
 			);
-			path = Archive;
+			path = VC;
 			sourceTree = "<group>";
 		};
-		16BB038B29137ACF005C0D4A /* Service */ = {
+		16A1B3DF295F4E6400CBBD83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
+				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
+				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
+				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
+				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16BB038B29137ACF005C0D4A /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				1659D09C2909CB55006843C6 /* Info.plist */,
 				1659D08E2909CB53006843C6 /* AppDelegate.swift */,
 				1659D0902909CB53006843C6 /* SceneDelegate.swift */,
 			);
-			path = Service;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		16BB038C29137B0E005C0D4A /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				16F84F77290D2775005A1A96 /* Assets.xcassets */,
-				16BB03822912FA8C005C0D4A /* Images.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		16BB038D29137B55005C0D4A /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				1664415A290B4339008B2256 /* FeedViewController.swift */,
-				16350E97291007840005F2B9 /* LoginViewController.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		16F1328029143D530001D766 /* StorageService */ = {
@@ -205,17 +216,6 @@
 				16F1328229143D530001D766 /* StorageService.docc */,
 			);
 			path = StorageService;
-			sourceTree = "<group>";
-		};
-		16F84F6C290C87A4005A1A96 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				16BB0389291379F1005C0D4A /* Photos */,
-				1664415C290B4346008B2256 /* ProfileViewController.swift */,
-				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
-				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
