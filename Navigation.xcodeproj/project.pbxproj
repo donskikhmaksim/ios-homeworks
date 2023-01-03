@@ -93,7 +93,7 @@
 		16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		16BB034629116DFE005C0D4A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
-		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/Modules/Profile/VC/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
+		16BB03802912EF2C005C0D4A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Navigation/Modules/Profile/PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
 		16BB03822912FA8C005C0D4A /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -151,7 +151,6 @@
 		1659D08D2909CB53006843C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				16A1B3F6296000AB00CBBD83 /* ViewModel */,
 				16A1B3EF295F5A6D00CBBD83 /* TabBar */,
 				16A1B3E8295F529F00CBBD83 /* Factory */,
 				16A1B3E3295F515E00CBBD83 /* Coordinators */,
@@ -162,6 +161,16 @@
 				16A1B3DC295F4DC500CBBD83 /* Extensions + */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1673F6E72964A2FC00C14A74 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				16350E97291007840005F2B9 /* LoginViewController.swift */,
+				16A1B3F9296014CF00CBBD83 /* LoginView.swift */,
+				16A1B3F7296000C800CBBD83 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		16A1B3DC295F4DC500CBBD83 /* Extensions + */ = {
@@ -186,26 +195,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		16A1B3DE295F4E1C00CBBD83 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				1664415A290B4339008B2256 /* FeedViewController.swift */,
-				16644182290BF4AA008B2256 /* InfoViewController.swift */,
-				1664415E290B489F008B2256 /* PostViewController.swift */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		16A1B3DF295F4E6400CBBD83 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		16A1B3E0295F4FB100CBBD83 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1673F6E72964A2FC00C14A74 /* Login */,
 				16A1B3F2295FFEEC00CBBD83 /* Feed */,
 				16A1B3F3295FFF0600CBBD83 /* Profile */,
 				16A1B3E1295F4FC700CBBD83 /* Module.swift */,
@@ -243,8 +236,9 @@
 		16A1B3F2295FFEEC00CBBD83 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				16A1B3DE295F4E1C00CBBD83 /* VC */,
-				16A1B3DF295F4E6400CBBD83 /* View */,
+				1664415A290B4339008B2256 /* FeedViewController.swift */,
+				16644182290BF4AA008B2256 /* InfoViewController.swift */,
+				1664415E290B489F008B2256 /* PostViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -252,41 +246,15 @@
 		16A1B3F3295FFF0600CBBD83 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				16A1B3F5295FFFD200CBBD83 /* VC */,
-				16A1B3F4295FFFA800CBBD83 /* View */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		16A1B3F4295FFFA800CBBD83 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				1664415C290B4346008B2256 /* ProfileViewController.swift */,
+				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
 				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
 				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
 				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
 				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
 				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		16A1B3F5295FFFD200CBBD83 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				16350E97291007840005F2B9 /* LoginViewController.swift */,
-				1664415C290B4346008B2256 /* ProfileViewController.swift */,
-				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
-				16A1B3F9296014CF00CBBD83 /* LoginView.swift */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		16A1B3F6296000AB00CBBD83 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				16A1B3F7296000C800CBBD83 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		16BB038B29137ACF005C0D4A /* AppDelegate */ = {
