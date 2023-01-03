@@ -12,9 +12,6 @@ class Checker {
     
     private init() {}
     
-
-
-    
 #if DEBUG
     private let login = testUserService.user.login
 #else

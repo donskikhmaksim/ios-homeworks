@@ -8,30 +8,21 @@
 import Foundation
 
 struct LoginInspector {
-    
     let checker = Checker.shared
-    
 }
 
 extension LoginInspector: LoginViewControllerDelegate {
-    
     func check(login: String, pass: String) -> Bool {
         checker.check(login: login, pass: pass)
     }
-    
-    
 }
 
 protocol LoginFactory {
-    
     func makeLoginInspector() -> LoginInspector
 }
 
 struct MyLoginFactory: LoginFactory {
-    
     func makeLoginInspector() -> LoginInspector {
         return LoginInspector()
     }
-    
-    
 }
