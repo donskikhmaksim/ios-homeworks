@@ -25,7 +25,7 @@ class LoginViewModel: LoginViewModelProtocol {
         case loginButtonDidTap
     }
     
-    weak var coordinator: ProfileCoordinator?
+    weak var coordinator: LoginCoordinator?
     var onStateDidChange: ((State) -> Void)?
     var loginDelegate: LoginViewControllerDelegate?
     
@@ -46,12 +46,12 @@ class LoginViewModel: LoginViewModelProtocol {
         case .loginButtonDidTap:
             state = .checking
             let result = loginInspector.check(login: login, pass: password)
-            sleep(2)
-            self.state = .checked(result: result)
-            print(coordinator)
-            coordinator?.pushIntoProfileVC(user: currentUserService.user)
-            
+            if result {
+                self.state = .checked(result: result)
+                coordinator?.pushIntoProfileVC(user: userService.user)
+            } else {
+                self.state = .checked(result: result)
+            }
         }
     }
-        
 }

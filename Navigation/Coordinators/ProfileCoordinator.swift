@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileCoordinator: ModuleCoordinatable {
+final class LoginCoordinator: ModuleCoordinatable {
     private(set) var module: Module?
     private(set) var childCoordinators: [Coordinatable] = []
     
@@ -25,7 +25,6 @@ final class ProfileCoordinator: ModuleCoordinatable {
         let viewController = module.viewController
         viewController.tabBarItem = moduleType.tabBarItem
         (module.viewModel as? LoginViewModel)?.coordinator = self
-//        print((module.viewModel as? LoginViewModel)?.coordinator)
         self.module = module
         return viewController
     }

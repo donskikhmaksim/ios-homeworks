@@ -11,12 +11,8 @@ class Checker {
     static let shared = Checker()
     
     private init() {}
-    
-#if DEBUG
-    private let login = testUserService.user.login
-#else
-    private let login = currentUserService.user.login
-#endif
+
+    private let login = userService.user.login
     private let pass = "2"
     
     func check(login: String, pass: String) -> Bool {

@@ -68,7 +68,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
             self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.3),
+            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.2),
             self.avatarImageView.heightAnchor.constraint(equalTo: self.avatarImageView.widthAnchor, multiplier: 1.0),
             
             self.nickNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),

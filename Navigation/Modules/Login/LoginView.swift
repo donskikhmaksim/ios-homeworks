@@ -136,7 +136,7 @@ class LoginView: UIView {
             loginButton.trailingAnchor.constraint(equalTo: textFieldsStackView.trailingAnchor),
             loginButton.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: 16),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
-        
+            
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
             
@@ -191,25 +191,15 @@ class LoginView: UIView {
         scrollView.setContentOffset(.zero, animated: true)
     }
     
+    func incorrectAutorisationAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .alert)
+        let wrongPasswordAction = UIAlertAction(title: "Try again?", style: .destructive)
+        alertController.addAction(wrongPasswordAction)
+        (delegate as? LoginViewController)?.present(alertController, animated: true, completion: nil)
+    }
+    
     @objc private func loginButtonDidTap(login: String, password: String) {
         delegate?.loginButtonDidTap(login: login, password: password)
-//        #if DEBUG
-//        let service = testUserService
-//        #else
-//        let service = currentUserService
-//        #endif
-//        
-//        let alertController = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .alert)
-//        let wrongPasswordAction = UIAlertAction(title: "Try again?", style: .destructive)
-//        alertController.addAction(wrongPasswordAction)
-        
-//        if (loginDelegate?.check(login: loginTextField.text!, pass: passwordTextField.text!)) ?? false, let user = service.checkLogin(login: loginTextField.text ?? "")  {
-//                let vc = ProfileViewController(user: user)
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            } else {
-//            sleep(1)
-//            present(alertController, animated: true, completion: nil)
-//        }
     }
     
 }

@@ -44,7 +44,6 @@ class LoginViewController: UIViewController {
     
     func bindViewModel() {
         viewModel.onStateDidChange = { [weak self] state in
-            print(state)
             guard let self = self else {
                 return
             }
@@ -57,38 +56,18 @@ class LoginViewController: UIViewController {
                 self.loginView.updateLoadingIndicator(isLoading: false)
             case .checked(result: false):
                 self.loginView.updateLoadingIndicator(isLoading: false)
+                self.loginView.incorrectAutorisationAlert()
             case .error:
                 ()
             }
         }
     }
-    
-    
 }
 
 
 extension LoginViewController : LoginViewDelegate {
-    
     @objc func loginButtonDidTap(login: String, password: String) {
         viewModel.updateState(viewInput: .loginButtonDidTap, login: login, password: password)
-        
-//        #if DEBUG
-//        let service = testUserService
-//        #else
-//        let service = currentUserService
-//        #endif
-//        
-//        let alertController = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .alert)
-//        let wrongPasswordAction = UIAlertAction(title: "Try again?", style: .destructive)
-//        alertController.addAction(wrongPasswordAction)
-        
-//        if (loginDelegate?.check(login: loginTextField.text!, pass: passwordTextField.text!)) ?? false, let user = service.checkLogin(login: loginTextField.text ?? "")  {
-//                let vc = ProfileViewController(user: user)
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            } else {
-//            sleep(1)
-//            present(alertController, animated: true, completion: nil)
-        }
-    
+    }
 }
 
