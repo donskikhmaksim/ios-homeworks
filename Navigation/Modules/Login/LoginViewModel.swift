@@ -48,7 +48,7 @@ class LoginViewModel: LoginViewModelProtocol {
             let result = loginInspector.check(login: login, pass: password)
             if result {
                 self.state = .checked(result: result)
-                coordinator?.pushIntoProfileVC(user: userService.user)
+                coordinator?.pushProfileVC(user: userService.user)
             } else {
                 self.state = .checked(result: result)
             }

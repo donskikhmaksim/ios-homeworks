@@ -16,12 +16,14 @@
 		1664415F290B489F008B2256 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415E290B489F008B2256 /* PostViewController.swift */; };
 		16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16644182290BF4AA008B2256 /* InfoViewController.swift */; };
 		1671DC6A29511B5100C3D2F0 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1671DC6929511B5100C3D2F0 /* iOSIntPackage */; };
+		1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */; };
+		1673F6EB2965D76C00C14A74 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673F6EA2965D76C00C14A74 /* FeedView.swift */; };
 		16A1B3E2295F4FC700CBBD83 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E1295F4FC700CBBD83 /* Module.swift */; };
 		16A1B3E5295F516C00CBBD83 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E4295F516C00CBBD83 /* Coordinatable.swift */; };
 		16A1B3E7295F522200CBBD83 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E6295F522200CBBD83 /* AppCoordinator.swift */; };
 		16A1B3EA295F52B400CBBD83 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E9295F52B400CBBD83 /* ModuleFactory.swift */; };
 		16A1B3EC295F56E600CBBD83 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3EB295F56E600CBBD83 /* FeedCoordinator.swift */; };
-		16A1B3EE295F592700CBBD83 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3ED295F592700CBBD83 /* ProfileCoordinator.swift */; };
+		16A1B3EE295F592700CBBD83 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3ED295F592700CBBD83 /* LoginCoordinator.swift */; };
 		16A1B3F1295F5A7F00CBBD83 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3F0295F5A7F00CBBD83 /* AppTabBarController.swift */; };
 		16A1B3F8296000C800CBBD83 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3F7296000C800CBBD83 /* LoginViewModel.swift */; };
 		16A1B3FA296014CF00CBBD83 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3F9296014CF00CBBD83 /* LoginView.swift */; };
@@ -81,12 +83,14 @@
 		1664415C290B4346008B2256 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1664415E290B489F008B2256 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		1673F6EA2965D76C00C14A74 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		16A1B3E1295F4FC700CBBD83 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		16A1B3E4295F516C00CBBD83 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		16A1B3E6295F522200CBBD83 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		16A1B3E9295F52B400CBBD83 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
 		16A1B3EB295F56E600CBBD83 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
-		16A1B3ED295F592700CBBD83 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		16A1B3ED295F592700CBBD83 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		16A1B3F0295F5A7F00CBBD83 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		16A1B3F7296000C800CBBD83 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		16A1B3F9296014CF00CBBD83 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -211,7 +215,7 @@
 			children = (
 				16A1B3E4295F516C00CBBD83 /* Coordinatable.swift */,
 				16A1B3E6295F522200CBBD83 /* AppCoordinator.swift */,
-				16A1B3ED295F592700CBBD83 /* ProfileCoordinator.swift */,
+				16A1B3ED295F592700CBBD83 /* LoginCoordinator.swift */,
 				16A1B3EB295F56E600CBBD83 /* FeedCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -237,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				1664415A290B4339008B2256 /* FeedViewController.swift */,
+				1673F6EA2965D76C00C14A74 /* FeedView.swift */,
+				1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */,
 				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 				1664415E290B489F008B2256 /* PostViewController.swift */,
 			);
@@ -253,13 +259,6 @@
 				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
 				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
 				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		16A1B3F6296000AB00CBBD83 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -416,6 +415,7 @@
 				16BB03812912EF2C005C0D4A /* PhotosViewController.swift in Sources */,
 				163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */,
 				16350E98291007840005F2B9 /* LoginViewController.swift in Sources */,
+				1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */,
 				16A1B3F1295F5A7F00CBBD83 /* AppTabBarController.swift in Sources */,
 				16BBA53B2913B33A00E6C570 /* PhotosCollectionViewCell.swift in Sources */,
 				16DEFE492940BC6A00791A52 /* User.swift in Sources */,
@@ -429,11 +429,12 @@
 				1664415F290B489F008B2256 /* PostViewController.swift in Sources */,
 				16A1B3FA296014CF00CBBD83 /* LoginView.swift in Sources */,
 				1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */,
-				16A1B3EE295F592700CBBD83 /* ProfileCoordinator.swift in Sources */,
+				16A1B3EE295F592700CBBD83 /* LoginCoordinator.swift in Sources */,
 				16BB03832912FA8C005C0D4A /* Images.swift in Sources */,
 				16BB034529107AA1005C0D4A /* ProfileTableHeaderView.swift in Sources */,
 				16BB038729130B56005C0D4A /* PreviewCollectionViewCell.swift in Sources */,
 				1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */,
+				1673F6EB2965D76C00C14A74 /* FeedView.swift in Sources */,
 				16DEFE4B2946966D00791A52 /* Checker.swift in Sources */,
 				16FD3DC82955B2F3007BE542 /* UIImage+.swift in Sources */,
 				16A1B3EC295F56E600CBBD83 /* FeedCoordinator.swift in Sources */,

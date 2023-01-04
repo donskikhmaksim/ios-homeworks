@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     
     var currentUser: User
     
+    private var coordinator: LoginCoordinator?
+    
     private lazy var someTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
@@ -36,8 +38,9 @@ class ProfileViewController: UIViewController {
         self.setupNavigation()
     }
     
-    init (user: User) {
+    init (user: User, coordinator: LoginCoordinator) {
         self.currentUser = user
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -136,7 +139,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         self.someTableView.deselectRow(at: indexPath, animated: true)
         
         if let _ = self.someTableView.cellForRow(at: indexPath) as? PhotosTableViewCell {
-            self.navigationController?.pushViewController(PhotosViewController(), animated: true)
+            coordinator?.pushPhotosVC()
         }
     }
 }

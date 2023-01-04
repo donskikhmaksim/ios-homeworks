@@ -18,8 +18,8 @@ final class ModuleFactory {
     func makeModule(typeOf moduleType: Module.ModuleType) -> Module {
         switch moduleType {
         case .feed:
-            let viewModel = LoginViewModel(loginInspector: loginInspetor)
-            let viewController = UINavigationController(rootViewController: FeedViewController())
+            let viewModel = FeedViewModel()
+            let viewController = UINavigationController(rootViewController: FeedViewController(viewModel: viewModel))
             return Module(moduleType: moduleType, viewModel: viewModel, viewController: viewController)
         case .profile:
             let viewModel = LoginViewModel(loginInspector: loginInspetor)

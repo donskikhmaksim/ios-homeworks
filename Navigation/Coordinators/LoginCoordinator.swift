@@ -29,8 +29,13 @@ final class LoginCoordinator: ModuleCoordinatable {
         return viewController
     }
     
-    func pushIntoProfileVC(user: User) {
-        let vc = ProfileViewController(user: user)
+    func pushProfileVC(user: User) {
+        let vc = ProfileViewController(user: user, coordinator: self)
+        (module?.viewController as? UINavigationController)?.pushViewController(vc, animated: true)
+    }
+    
+    func pushPhotosVC() {
+        let vc = PhotosViewController()
         (module?.viewController as? UINavigationController)?.pushViewController(vc, animated: true)
     }
     
