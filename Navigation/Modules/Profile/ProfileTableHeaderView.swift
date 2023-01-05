@@ -1,65 +1,53 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableHeaderView.swift
 //  Navigation
 //
-//  Created by Максим Донских on 29.10.2022.
+//  Created by Максим Донских on 01.11.2022.
 //
 
 import UIKit
 
-class ProfileHeaderView: UIView {
-
+class ProfileTableHeaderView: UITableViewHeaderFooterView {
+    
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = UIImage(named: "avatar")
         imageView.layer.masksToBounds = true
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
     private lazy var nickNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Crazy Frog"
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
     private lazy var mindsLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "There are my crazy minds"
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textAlignment = .center
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
-    private lazy var statusButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 12
+    private lazy var statusButton: CustomButton = {
+        let button = CustomButton(title: "Tap to change status", titleColor: .white, backgroundColor: .systemBlue)
         button.layer.shadowOffset = CGSizeMake(4, 4)
         button.layer.shadowRadius = 12
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
         button.layer.masksToBounds = false
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
-        button.setTitle("Everything is complicated", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.closure = { self.buttonDidTap(self.statusButton) }
         return button
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupView()
-        
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +68,7 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate([
             self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.3),
+            self.avatarImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.2),
             self.avatarImageView.heightAnchor.constraint(equalTo: self.avatarImageView.widthAnchor, multiplier: 1.0),
             
             self.nickNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
@@ -91,8 +79,6 @@ class ProfileHeaderView: UIView {
             self.mindsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             self.statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
-            // Понять почему на SE 26 норм, а 25 - нет
-//            self.statusButton.topAnchor.constraint(lessThanOrEqualTo: self.avatarImageView.bottomAnchor, constant: 25),
             self.statusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             self.statusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.statusButton.heightAnchor.constraint(equalToConstant: 50),
@@ -100,10 +86,19 @@ class ProfileHeaderView: UIView {
         ])
     }
     
+    func setup(login : String, status : String, avatar : UIImage) {
+        nickNameLabel.text = login
+        mindsLabel.text = status
+        avatarImageView.image = avatar
+        
+    }
+    
     @objc private func buttonDidTap(_ sender: UIButton) {
         if let buttonTitle = sender.titleLabel?.text {
             print(buttonTitle)
         }
     }
+    
+    
     
 }
