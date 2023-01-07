@@ -83,6 +83,18 @@ class LoginView: UIView {
         return button
     }()
     
+    private lazy var bruteButton: CustomButton = {
+        let button = CustomButton(title: "Brute", titleColor: .red)
+        let image = UIImage(named: "blue_pixel")
+        let alphaImage = image?.alpha(0.8)
+        button.setBackgroundImage(image, for: .normal)
+        button.setBackgroundImage(alphaImage, for: .selected)
+        button.setBackgroundImage(alphaImage, for: .highlighted)
+        button.setBackgroundImage(alphaImage, for: .disabled)
+        button.closure = {self.bruteButtonDidTap()}
+        return button
+    }()
+    
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.style = .medium
@@ -109,6 +121,7 @@ class LoginView: UIView {
         scrollView.addSubview(logoImageView)
         scrollView.addSubview(textFieldsStackView)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(bruteButton)
         textFieldsStackView.addArrangedSubview(loginTextField)
         textFieldsStackView.addArrangedSubview(passwordTextField)
         addSubview(loadingIndicator)
@@ -137,8 +150,13 @@ class LoginView: UIView {
             loginButton.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: 16),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             
+            bruteButton.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor),
+            bruteButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
+            bruteButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            bruteButton.heightAnchor.constraint(equalToConstant: 50),
+            
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+            loadingIndicator.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor)
             
         ])
     }
@@ -200,6 +218,31 @@ class LoginView: UIView {
     
     @objc private func loginButtonDidTap(login: String, password: String) {
         delegate?.loginButtonDidTap(login: login, password: password)
+    }
+    
+    @objc private func bruteButtonDidTap() {
+        
+        passwordTextField.isSecureTextEntry = true
+        loadingIndicator.startAnimating()
+        
+        
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            let start = DispatchTime.now()
+            let pass = BruteForce().bruteForce(passwordToUnlock: generatePass(3))
+            let end = DispatchTime.now()
+            print(Double(end.uptimeNanoseconds - start.uptimeNanoseconds)/1000000000)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.passwordTextField.text = pass
+                self?.passwordTextField.isSecureTextEntry = false
+                self?.loadingIndicator.stopAnimating()
+            }
+        }
+        
+        func generatePass(_ lenght: Int) -> String {
+            let printable = String().printable
+            return String((0..<lenght).map { _ in printable.randomElement()! })
+        }
     }
     
 }

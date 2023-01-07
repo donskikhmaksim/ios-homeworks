@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163374E629697FED001ECCC3 /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163374E529697FED001ECCC3 /* BruteForce.swift */; };
 		16350E98291007840005F2B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16350E97291007840005F2B9 /* LoginViewController.swift */; };
 		163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CBC5B2952EDE00088BDCE /* CustomButton.swift */; };
 		1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D08E2909CB53006843C6 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		163374E529697FED001ECCC3 /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		16350E97291007840005F2B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		163CBC5B2952EDE00088BDCE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1659D08B2909CB53006843C6 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 				16DEFE482940BC6A00791A52 /* User.swift */,
 				16DEFE4A2946966D00791A52 /* Checker.swift */,
 				16DEFE4C29469D6100791A52 /* LoginInspector.swift */,
+				163374E529697FED001ECCC3 /* BruteForce.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */,
 				16A1B3F1295F5A7F00CBBD83 /* AppTabBarController.swift in Sources */,
 				16BBA53B2913B33A00E6C570 /* PhotosCollectionViewCell.swift in Sources */,
+				163374E629697FED001ECCC3 /* BruteForce.swift in Sources */,
 				16DEFE492940BC6A00791A52 /* User.swift in Sources */,
 				16644183290BF4AA008B2256 /* InfoViewController.swift in Sources */,
 				16DEFE4D29469D6100791A52 /* LoginInspector.swift in Sources */,
