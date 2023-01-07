@@ -9,6 +9,8 @@ import UIKit
 
 class PostViewController: UIViewController {
     
+    private var coordinator: FeedCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemGray
@@ -16,11 +18,16 @@ class PostViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Вперед", style: .done, target: self, action: #selector(didTapButton))
     }
     
-    @objc private func didTapButton() {
-        let viewController = InfoViewController()
-        self.present(viewController, animated: true)
-
+    init(coordinator: FeedCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+    @objc private func didTapButton() {
+        coordinator?.presentInfoVC()
+    }
 }
