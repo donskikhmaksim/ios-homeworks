@@ -10,6 +10,7 @@ import UIKit
 protocol FeedViewDelegate: AnyObject {
     func didTapCheckButton()
     func didTapPushButton()
+    func alert()
 }
 
 class FeedView: UIView {
@@ -56,6 +57,9 @@ class FeedView: UIView {
         super.init(frame: .zero)
         self.delefate = delegate
         setupUI()
+        
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(alert) , userInfo: nil, repeats: false)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -94,12 +98,17 @@ class FeedView: UIView {
         ])
     }
     
-    func didTapCheckButton() {
+    @objc func didTapCheckButton() {
         delefate?.didTapCheckButton()
     }
     
-    func didTapPushButton() {
+    @objc func didTapPushButton() {
         delefate?.didTapPushButton()
+    }
+    
+    @objc func alert() {
+        delefate?.alert()
+        
     }
 }
 

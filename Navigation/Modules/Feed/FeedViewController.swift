@@ -42,22 +42,20 @@ class FeedViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc private func didTapCheckButton() {
-//        if textField.text != "" && textField.text != nil {
-//            self.hideKeyboard()
-//            if feedModel.check(word: textField.text!) {
-//                indicatorLabel.backgroundColor = .systemGreen
-//                self.hideKeyboard()
-//            } else {
-//                indicatorLabel.backgroundColor = .systemRed
-//                self.hideKeyboard()
-//            }
-//        } else {
-//            indicatorLabel.backgroundColor = .white
-//            self.hideKeyboard()
-//        }
-//        self.hideKeyboard()
-//    }
+    @objc func alert() {
+        let alert = UIAlertController(title: "Do you want to Login", message: "Please login to continue", preferredStyle: .alert)
+        let accept = UIAlertAction(title: "Accept", style: .default) { _ in
+            self.navigationController?.pushViewController(LoginViewController(viewModel: LoginViewModel(loginInspector: MyLoginFactory().makeLoginInspector())), animated: true)
+        }
+        
+        let decline = UIAlertAction(title: "Decline", style: .destructive) { _ in
+            exit(1)
+        }
+        alert.addAction(accept)
+        alert.addAction(decline)
+        self.navigationController?.present(alert, animated: true)
+        
+    }
 }
 
 extension FeedViewController: FeedViewDelegate {
