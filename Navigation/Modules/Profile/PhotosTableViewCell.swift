@@ -72,8 +72,6 @@ class PhotosTableViewCell: UITableViewCell {
             self.photosPreviewCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.photosPreviewCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
             
-            self.photosPreviewCollectionView.widthAnchor.constraint(equalToConstant: self.frame.width - 24),
-            
             self.arrowImage.centerYAnchor.constraint(equalTo: self.headerLabel.centerYAnchor),
             self.arrowImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             self.arrowImage.widthAnchor.constraint(equalToConstant: 30),
@@ -110,11 +108,6 @@ extension PhotosTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionV
         
         let width = collectionView.bounds.width - 3 * interitemSpacing - insets.left - insets.right
         let itemWidtg: CGFloat = width / 4
-        print("🍏 - \(UIScreen.main.bounds.width)")
-        print("🍏 - \(insets)")
-        print("🍏 - \(interitemSpacing)")
-        print("🍏 - \(width)")
-        print("🍏 - \(itemWidtg)")
         
         return CGSize(width: itemWidtg, height: itemWidtg)
     }

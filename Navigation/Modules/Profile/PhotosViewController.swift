@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import iOSIntPackage
+import Dispatch
 
 class PhotosViewController: UIViewController {
+    
+    var newImages: [UIImage?] = []
+    private var imageProcessor = ImageProcessor()
+    
+    private lazy var myImages: [UIImage] = {
+        images.map({ $0! })
+    }()
     
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -27,74 +36,98 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
+    override func loadView() {
+        super.loadView()
+      
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
-        self.navigationItem.title = "Photo Gallery"
+        setupView()
+        navigationItem.title = "Photo Gallery"
+        processImages(imageArray: myImages)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationSetup()
+        navigationSetup()
     }
     
     private func navigationSetup() {
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationItem.title = "Photo Gallery"
-        self.navigationController?.navigationBar.backgroundColor = .systemGray5
-        self.navigationController?.navigationBar.alpha = 1
-        
-        
+        navigationItem.title = "Photo Gallery"
+        navigationController?.navigationBar.backgroundColor = .systemGray5
+        navigationController?.navigationBar.alpha = 1
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemGray5
-        
-        self.view.addSubview(collectionView)
-        
+        view.backgroundColor = .systemGray5
+        view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-        self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-        self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-        self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    private func processImages(imageArray: [UIImage]) {
+        
+        let startTime = DispatchTime.now()
+        var endTime = DispatchTime.now()
+        
+        // userInteractive - 7
+        // userInitiated - 7
+        // utility - 12
+        // background - 35
+        
+        
+        imageProcessor.processImagesOnThread(sourceImages: imageArray,
+                                             filter: .noir,
+                                             qos: .background) { [weak self] in
+            self?.newImages = $0.map({ UIImage(cgImage: $0!) })
+            endTime = DispatchTime.now()
+            print((Double(endTime.uptimeNanoseconds - startTime.uptimeNanoseconds))/1000000000, "seconds")
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-//        self.navigationItem.hidesBackButton = true
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        return myImages.count
     }
-
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let item = collectionView.dequeueReusableCell(withReuseIdentifier: "Custom", for: indexPath) as? PhotosCollectionViewCell else {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: "Default", for: indexPath)
-                return item
-            }
-        let viewModel = images[indexPath.row]
-        item.setup(with: viewModel)
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: "Default", for: indexPath)
+            return item
+        }
+        
+        if !newImages.isEmpty {
+            let viewModel = newImages[indexPath.row] ?? myImages[indexPath.row]
+            item.setup(with: viewModel)
+        } else {
+            let viewModel = myImages[indexPath.row]
+            item.setup(with: viewModel)
+        }
         return item
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let insets = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
         let interitemSpacing = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 0
-        
         let width = collectionView.bounds.width - (2 * interitemSpacing) - insets.left - insets.right
         let itemWidtg = floor(width / 3)
-        
         return CGSize(width: itemWidtg, height: itemWidtg)
     }
 }
