@@ -18,6 +18,7 @@
 		1671DC6A29511B5100C3D2F0 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1671DC6929511B5100C3D2F0 /* iOSIntPackage */; };
 		1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */; };
 		1673F6EB2965D76C00C14A74 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673F6EA2965D76C00C14A74 /* FeedView.swift */; };
+		1673F6ED29696CF400C14A74 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673F6EC29696CF400C14A74 /* String+.swift */; };
 		16A1B3E2295F4FC700CBBD83 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E1295F4FC700CBBD83 /* Module.swift */; };
 		16A1B3E5295F516C00CBBD83 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E4295F516C00CBBD83 /* Coordinatable.swift */; };
 		16A1B3E7295F522200CBBD83 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B3E6295F522200CBBD83 /* AppCoordinator.swift */; };
@@ -85,6 +86,7 @@
 		16644182290BF4AA008B2256 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		1673F6EA2965D76C00C14A74 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		1673F6EC29696CF400C14A74 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		16A1B3E1295F4FC700CBBD83 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		16A1B3E4295F516C00CBBD83 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		16A1B3E6295F522200CBBD83 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				16FD3DC72955B2F3007BE542 /* UIImage+.swift */,
 				16FD3DC92955B387007BE542 /* UITextField+.swift */,
+				1673F6EC29696CF400C14A74 /* String+.swift */,
 			);
 			path = "Extensions +";
 			sourceTree = "<group>";
@@ -255,9 +258,9 @@
 				1664415C290B4346008B2256 /* ProfileViewController.swift */,
 				16BB03802912EF2C005C0D4A /* PhotosViewController.swift */,
 				16BB034429107AA1005C0D4A /* ProfileTableHeaderView.swift */,
+				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
 				16BBA53A2913B33A00E6C570 /* PhotosCollectionViewCell.swift */,
 				16BB038629130B56005C0D4A /* PreviewCollectionViewCell.swift */,
-				16BB034629116DFE005C0D4A /* PostTableViewCell.swift */,
 				16BB037E2912E8F4005C0D4A /* PhotosTableViewCell.swift */,
 			);
 			path = Profile;
@@ -415,6 +418,7 @@
 				16BB03812912EF2C005C0D4A /* PhotosViewController.swift in Sources */,
 				163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */,
 				16350E98291007840005F2B9 /* LoginViewController.swift in Sources */,
+				1673F6ED29696CF400C14A74 /* String+.swift in Sources */,
 				1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */,
 				16A1B3F1295F5A7F00CBBD83 /* AppTabBarController.swift in Sources */,
 				16BBA53B2913B33A00E6C570 /* PhotosCollectionViewCell.swift in Sources */,
