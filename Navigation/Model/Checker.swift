@@ -16,10 +16,15 @@ class Checker {
     private let pass = "2"
     
     func check(login: String, pass: String) -> Bool {
-        if login == self.login && pass == self.pass {
-            return true
-        } else {
-            return false
-        }
+        login == self.login && pass == self.pass
     }
+    
+    func check(login: String) -> Bool {
+        login == self.login
+    }
+    
+    func check(password: String) -> Bool {
+        password == self.pass
+    }
+    
 }

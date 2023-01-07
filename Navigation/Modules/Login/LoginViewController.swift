@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewControllerDelegate {
-    func check(login: String, pass: String) -> Bool
+    func check(login: String, pass: String) throws -> Bool
 }
 
 class LoginViewController: UIViewController {
@@ -56,9 +56,11 @@ class LoginViewController: UIViewController {
                 self.loginView.updateLoadingIndicator(isLoading: false)
             case .checked(result: false):
                 self.loginView.updateLoadingIndicator(isLoading: false)
-                self.loginView.incorrectAutorisationAlert()
-            case .error:
-                ()
+//                self.loginView.inv()
+            case .error(.invalidLogin):
+                self.loginView.invalidLoginAlert()
+            case .error(.invalidPassword):
+                self.loginView.invalidPasswordAlert()
             }
         }
     }

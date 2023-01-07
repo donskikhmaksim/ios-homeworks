@@ -9,11 +9,22 @@ import Foundation
 
 struct LoginInspector {
     let checker = Checker.shared
+    
+    enum LoginError: Error {
+        case invalidLogin
+        case invalidPassword
+    }
 }
 
 extension LoginInspector: LoginViewControllerDelegate {
-    func check(login: String, pass: String) -> Bool {
-        checker.check(login: login, pass: pass)
+    func check(login: String, pass: String) throws -> Bool {
+        if !checker.check(login: login) {
+            throw LoginError.invalidLogin
+        } else if !checker.check(password: pass) {
+            throw LoginError.invalidPassword
+        } else {
+            return true
+        }
     }
 }
 

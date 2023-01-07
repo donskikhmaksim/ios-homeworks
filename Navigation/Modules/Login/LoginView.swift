@@ -191,10 +191,17 @@ class LoginView: UIView {
         scrollView.setContentOffset(.zero, animated: true)
     }
     
-    func incorrectAutorisationAlert() {
+    func invalidLoginAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Incorrect Login", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Try again?", style: .destructive)
+        alertController.addAction(action)
+        (delegate as? LoginViewController)?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func invalidPasswordAlert() {
         let alertController = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .alert)
-        let wrongPasswordAction = UIAlertAction(title: "Try again?", style: .destructive)
-        alertController.addAction(wrongPasswordAction)
+        let action = UIAlertAction(title: "Try again?", style: .destructive)
+        alertController.addAction(action)
         (delegate as? LoginViewController)?.present(alertController, animated: true, completion: nil)
     }
     

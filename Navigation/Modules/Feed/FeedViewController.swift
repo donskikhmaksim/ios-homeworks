@@ -21,6 +21,7 @@ class FeedViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = feedView
+        bindViewModel()
     }
     
     override func viewDidLoad() {
@@ -42,6 +43,29 @@ class FeedViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bindViewModel() {
+        viewModel.onStateDidChange = { [weak self] state in
+            guard let self = self else {
+                return
+            }
+            switch state {
+            case .initial:
+                ()
+            case .checking:
+                ()
+            case .checked(result: true):
+                self.feedView.checkText(true)
+            case .checked(result: false):
+                ()
+//                self.feedView.checkText(false)
+            case .error(.emptyText):
+                self.feedView.whiteLabel()
+            case .error(error: .invalidText):
+                self.feedView.checkText(false)
+            }
+        }
+    }
+    
     @objc func alert() {
         let alert = UIAlertController(title: "Do you want to Login", message: "Please login to continue", preferredStyle: .alert)
         let accept = UIAlertAction(title: "Accept", style: .default) { _ in
@@ -49,7 +73,7 @@ class FeedViewController: UIViewController {
         }
         
         let decline = UIAlertAction(title: "Decline", style: .destructive) { _ in
-            exit(1)
+            print("Decline")
         }
         alert.addAction(accept)
         alert.addAction(decline)
@@ -60,8 +84,8 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: FeedViewDelegate {
     
-    func didTapCheckButton() {
-        viewModel.updateState(viewInput: .checkButtonDidTap)
+    func didTapCheckButton(text: String) {
+        viewModel.updateState(viewInput: .checkButtonDidTap, text: text)
     }
     
     func didTapPushButton() {

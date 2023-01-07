@@ -18,7 +18,7 @@ class LoginViewModel: LoginViewModelProtocol {
         case initial
         case checking
         case checked(result: Bool)
-        case error
+        case error(LoginInspector.LoginError)
     }
     
     enum ViewInput {
@@ -45,7 +45,19 @@ class LoginViewModel: LoginViewModelProtocol {
         switch viewInput {
         case .loginButtonDidTap:
             state = .checking
-            let result = loginInspector.check(login: login, pass: password)
+            
+            var result: Bool = false
+            do {
+                result = try loginInspector.check(login: login, pass: password)
+            } catch LoginInspector.LoginError.invalidLogin {
+                self.state = .error(.invalidLogin)
+                print("Неверный логин")
+            } catch LoginInspector.LoginError.invalidPassword {
+                self.state = .error(.invalidPassword)
+                print("Неверный пароль")
+            } catch {
+                print("Неизвестная ошибка")
+            }
             if result {
                 self.state = .checked(result: result)
                 coordinator?.pushProfileVC(user: userService.user)

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FeedViewDelegate: AnyObject {
-    func didTapCheckButton()
+    func didTapCheckButton(text: String)
     func didTapPushButton()
     func alert()
 }
@@ -31,7 +31,7 @@ class FeedView: UIView {
     
     private lazy var checkGuessButton: CustomButton = {
         let button = CustomButton(title: "Check", width: 250, height: 50, backgroundColor: .systemYellow)
-        button.closure = { self.didTapCheckButton() }
+        button.closure = { self.didTapCheckButton(text: self.textField.text ?? "") }
         return button
     }()
     
@@ -57,8 +57,9 @@ class FeedView: UIView {
         super.init(frame: .zero)
         self.delefate = delegate
         setupUI()
+        SetupGesture()
         
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(alert) , userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(alert) , userInfo: nil, repeats: false)
         
     }
     
@@ -98,8 +99,17 @@ class FeedView: UIView {
         ])
     }
     
-    @objc func didTapCheckButton() {
-        delefate?.didTapCheckButton()
+    private func SetupGesture() {
+        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func hideKeyboard() {
+        endEditing(true)
+    }
+    
+    @objc func didTapCheckButton(text: String) {
+        delefate?.didTapCheckButton(text: text)
     }
     
     @objc func didTapPushButton() {
@@ -108,8 +118,27 @@ class FeedView: UIView {
     
     @objc func alert() {
         delefate?.alert()
-        
+    }
+    
+    func checkTextField(text: String) {
+        if text.count == 0 {
+            indicatorLabel.backgroundColor = .white
+        } else if text != FeedModel().secretWord {
+            indicatorLabel.backgroundColor = .red
+        } else {
+            indicatorLabel.backgroundColor = .green
+        }
+    }
+    
+    func whiteLabel() {
+        indicatorLabel.backgroundColor = .white
+    }
+    
+    func checkText(_ result: Bool) {
+        if result {
+            indicatorLabel.backgroundColor = .green
+        } else {
+            indicatorLabel.backgroundColor = .red
+        }
     }
 }
-
-
