@@ -11,6 +11,14 @@
 		163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CBC5B2952EDE00088BDCE /* CustomButton.swift */; };
 		1659D08F2909CB53006843C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D08E2909CB53006843C6 /* AppDelegate.swift */; };
 		1659D0912909CB53006843C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659D0902909CB53006843C6 /* SceneDelegate.swift */; };
+		1663FBE9296AE25F0026AC11 /* Media1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1663FBE8296AE25F0026AC11 /* Media1.mp3 */; };
+		1663FBEE296AEDBF0026AC11 /* Media3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1663FBEA296AEDBE0026AC11 /* Media3.mp3 */; };
+		1663FBEF296AEDBF0026AC11 /* Media2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1663FBEB296AEDBF0026AC11 /* Media2.mp3 */; };
+		1663FBF0296AEDBF0026AC11 /* Media4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1663FBEC296AEDBF0026AC11 /* Media4.mp3 */; };
+		1663FBF1296AEDBF0026AC11 /* Media5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1663FBED296AEDBF0026AC11 /* Media5.mp3 */; };
+		1663FBF3296B05170026AC11 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1663FBF2296B05170026AC11 /* VideoViewController.swift */; };
+		1663FBF5296B06C00026AC11 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1663FBF4296B06C00026AC11 /* TableViewController.swift */; };
+		1663FBF7296B284B0026AC11 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1663FBF6296B284B0026AC11 /* RecordViewController.swift */; };
 		1664415B290B4339008B2256 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415A290B4339008B2256 /* FeedViewController.swift */; };
 		1664415D290B4346008B2256 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415C290B4346008B2256 /* ProfileViewController.swift */; };
 		1664415F290B489F008B2256 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664415E290B489F008B2256 /* PostViewController.swift */; };
@@ -80,6 +88,14 @@
 		1659D08E2909CB53006843C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1659D0902909CB53006843C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1659D09C2909CB55006843C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1663FBE8296AE25F0026AC11 /* Media1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Media1.mp3; sourceTree = "<group>"; };
+		1663FBEA296AEDBE0026AC11 /* Media3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Media3.mp3; sourceTree = "<group>"; };
+		1663FBEB296AEDBF0026AC11 /* Media2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Media2.mp3; sourceTree = "<group>"; };
+		1663FBEC296AEDBF0026AC11 /* Media4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Media4.mp3; sourceTree = "<group>"; };
+		1663FBED296AEDBF0026AC11 /* Media5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Media5.mp3; sourceTree = "<group>"; };
+		1663FBF2296B05170026AC11 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1663FBF4296B06C00026AC11 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		1663FBF6296B284B0026AC11 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1664415A290B4339008B2256 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1664415C290B4346008B2256 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1664415E290B489F008B2256 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +173,11 @@
 		1659D08D2909CB53006843C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1663FBEB296AEDBF0026AC11 /* Media2.mp3 */,
+				1663FBEA296AEDBE0026AC11 /* Media3.mp3 */,
+				1663FBEC296AEDBF0026AC11 /* Media4.mp3 */,
+				1663FBED296AEDBF0026AC11 /* Media5.mp3 */,
+				1663FBE8296AE25F0026AC11 /* Media1.mp3 */,
 				16A1B3EF295F5A6D00CBBD83 /* TabBar */,
 				16A1B3E8295F529F00CBBD83 /* Factory */,
 				16A1B3E3295F515E00CBBD83 /* Coordinators */,
@@ -248,6 +269,9 @@
 				1673F6E82965D2DA00C14A74 /* FeedViewModel.swift */,
 				16644182290BF4AA008B2256 /* InfoViewController.swift */,
 				1664415E290B489F008B2256 /* PostViewController.swift */,
+				1663FBF2296B05170026AC11 /* VideoViewController.swift */,
+				1663FBF4296B06C00026AC11 /* TableViewController.swift */,
+				1663FBF6296B284B0026AC11 /* RecordViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -393,7 +417,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1663FBEF296AEDBF0026AC11 /* Media2.mp3 in Resources */,
 				16F84F78290D2775005A1A96 /* Assets.xcassets in Resources */,
+				1663FBF0296AEDBF0026AC11 /* Media4.mp3 in Resources */,
+				1663FBE9296AE25F0026AC11 /* Media1.mp3 in Resources */,
+				1663FBEE296AEDBF0026AC11 /* Media3.mp3 in Resources */,
+				1663FBF1296AEDBF0026AC11 /* Media5.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,11 +443,14 @@
 				16A1B3EA295F52B400CBBD83 /* ModuleFactory.swift in Sources */,
 				16BB037F2912E8F4005C0D4A /* PhotosTableViewCell.swift in Sources */,
 				16FD3DC629559FF9007BE542 /* FeedModel.swift in Sources */,
+				1663FBF7296B284B0026AC11 /* RecordViewController.swift in Sources */,
 				16A1B3E5295F516C00CBBD83 /* Coordinatable.swift in Sources */,
 				16BB03812912EF2C005C0D4A /* PhotosViewController.swift in Sources */,
 				163CBC5C2952EDE00088BDCE /* CustomButton.swift in Sources */,
 				16350E98291007840005F2B9 /* LoginViewController.swift in Sources */,
 				1673F6ED29696CF400C14A74 /* String+.swift in Sources */,
+				1663FBF5296B06C00026AC11 /* TableViewController.swift in Sources */,
+				1663FBF3296B05170026AC11 /* VideoViewController.swift in Sources */,
 				1673F6E92965D2DA00C14A74 /* FeedViewModel.swift in Sources */,
 				16A1B3F1295F5A7F00CBBD83 /* AppTabBarController.swift in Sources */,
 				16BBA53B2913B33A00E6C570 /* PhotosCollectionViewCell.swift in Sources */,
@@ -592,6 +624,7 @@
 				DEVELOPMENT_TEAM = 82KQ5UJRH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/AppDelegate/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please accept if you want to record";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -622,6 +655,7 @@
 				DEVELOPMENT_TEAM = 82KQ5UJRH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/AppDelegate/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please accept if you want to record";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

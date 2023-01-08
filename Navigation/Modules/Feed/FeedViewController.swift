@@ -91,4 +91,12 @@ extension FeedViewController: FeedViewDelegate {
     func didTapPushButton() {
         viewModel.updateState(viewInput: .pushButtonDidTap)
     }
+    
+    func pushVideo() {
+        navigationController?.pushViewController(TableViewController(), animated: true)
+    }
+    
+    func recordButtonDidTap() {
+        navigationController?.pushViewController(RecordViewController(), animated: true)
+    }
 }
