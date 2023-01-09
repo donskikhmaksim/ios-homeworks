@@ -27,7 +27,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: scene)
         self.appCoordinator = appCoordinator
         
-        
+        let appConfiguration: NetworkService.AppConfiguration = NetworkService().urlArray.randomElement()!
+        NetworkService.request(for: appConfiguration, completion: { answer, errorText, statusCode, allHeaderFields in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 5, execute: {
+                print("Completion: \(answer)")
+            }
+            )
+        }
+        )
 
         
         self.window?.rootViewController = appCoordinator.start()
